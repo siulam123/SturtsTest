@@ -5,17 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>老师</title>
-
-<link rel="stylesheet" href="../css/common.css">
+<!-- 
+<link rel="stylesheet" href="../css/common.css"> -->
 </head>
 <body>
 	<form action="">
 	<font >姓名：....</font> 
-	<button>管理试卷</button><br>
-	<button>管理题库</button>
-	<button>自动随机组卷</button>
-	<button>查询已考试卷</button>
-	<button>添加学生</button>
+	<div class="manage">
+		<a href="**action">管理试卷</a>
+	</div><!-- 自动随机组卷 -->
+	<div class="manage">
+	<a href="**action">管理题库</a>
+	</div>
+	<div class="manage">
+	<a href="**action">查看成绩</a><!-- 查询已考试卷 -->
+	</div>
  	</form>
 </body>
 </html>
