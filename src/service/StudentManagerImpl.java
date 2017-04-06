@@ -5,23 +5,23 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
-import daoImpl.UserDaoImpl;
+import daoImpl.StudentDaoImpl;
 import pojo.Student;
 
 @Service
-public class UserManagerImpl implements UserManager{
-    private UserDaoImpl dao;  
+public class StudentManagerImpl implements StudentManager{
+    private StudentDaoImpl dao;  
 
-    public UserManagerImpl(){
-        dao = new UserDaoImpl();
-        System.out.println("UserManager IN");
+    public StudentManagerImpl(){
+        dao = new StudentDaoImpl();
+        System.out.println("StudentManager IN");
     }
     
-    public UserDaoImpl getDao() {
+    public StudentDaoImpl getDao() {
     	return dao;
 	}
 
-    public void setDao(UserDaoImpl dao) {
+    public void setDao(StudentDaoImpl dao) {
         this.dao = dao;
     }
 
@@ -35,10 +35,10 @@ public class UserManagerImpl implements UserManager{
     }
     
     public String login(Student stu) throws HibernateException{
-    	Student userSql = dao.findUser(stu);
-    	if(userSql!=null)
-    		if(userSql.getPassword().equals(stu.getPassword())){
-    			System.out.println("用户"+userSql.getStudentName()+"登陆成功");
+    	Student stuSql = dao.findStudent(stu);
+    	if(stuSql!=null)
+    		if(stuSql.getPassword().equals(stu.getPassword())){
+    			System.out.println("用户"+stuSql.getStudentName()+"登陆成功");
     			return "success";
     		}
     		else

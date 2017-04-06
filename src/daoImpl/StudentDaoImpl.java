@@ -6,13 +6,13 @@ import org.hibernate.HibernateException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
-import dao.UserDao;
+import dao.StudentDao;
 import pojo.Student;
 
 @Repository
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
+public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao{
 
-	public UserDaoImpl() {
+	public StudentDaoImpl() {
         System.out.println("UserDao IN");
     }
 	
@@ -26,8 +26,8 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
         return stu;
     }
     
-    public Student findUser(Student user) throws HibernateException{
-    	List<?> list =getHibernateTemplate().find("FROM Student U WHERE U.studentName = ?0",user.getStudentName());
+    public Student findStudent(Student stu) throws HibernateException{
+    	List<?> list =getHibernateTemplate().find("FROM Student U WHERE U.studentId = ?0",stu.getStudentId());
     	//
     	if(list.size()!=0)
     		return (Student) list.get(0);
@@ -36,8 +36,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao{
     }
 
 	public void updateObject(Student stu) throws HibernateException {
-		getHibernateTemplate().update(stu);
-		
+		getHibernateTemplate().update(stu);	
 	}
 	
 }

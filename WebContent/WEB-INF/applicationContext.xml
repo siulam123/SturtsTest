@@ -47,8 +47,14 @@
         class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="mappingResources">
+        	<!-- 实体类配置文件 -->
             <list>
                 <value>pojo/Student.hbm.xml</value>
+                <value>pojo/Teacher.hbm.xml</value>
+                <value>pojo/Administrator.hbm.xml</value>
+                <value>pojo/Item.hbm.xml</value>
+                <value>pojo/Grade.hbm.xml</value>
+                <value>pojo/Exampaper.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -62,36 +68,111 @@
     
     <!-- 操作异常转化为Spring的表达方式 -->  
     
-    
     <bean id="transactionManager"
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
     
     <!-- DAO类注册 -->
-    <bean id="userDaoImpl" class="daoImpl.UserDaoImpl">
+    <bean id="studentDaoImpl" class="daoImpl.StudentDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="teacherDaoImpl" class="daoImpl.TeacherDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="administratorDaoImpl" class="daoImpl.AdministratorDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="itemDaoImpl" class="daoImpl.ItemDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="gradeDaoImpl" class="daoImpl.GradeDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="exampaperDaoImpl" class="daoImpl.ExampaperDaoImpl">
         <property name="sessionFactory">
             <ref bean="sessionFactory" />
         </property>
     </bean>
     
+    <!-- model类注册 -->
+    <bean id="student" class="pojo.Student"></bean>
+    <bean id="teacher" class="pojo.Teacher"></bean>
+    <bean id="administrator" class="pojo.Administrator"></bean>
+    <bean id="item" class="pojo.Item"></bean>
+    <bean id="grade" class="pojo.Grade"></bean>
+    <bean id="exampaper" class="pojo.Exampaper"></bean>
+    
     <!-- service类注册 -->
-    <bean id="userManager" class="service.UserManagerImpl">
+    <bean id="studentManager" class="service.StudentManagerImpl">
         <property name="dao">
-            <ref bean="userDaoImpl" />
+            <ref bean="studentDaoImpl" />
+        </property>
+    </bean>
+    <bean id="teacherManager" class="service.TeacherManagerImpl">
+        <property name="dao">
+            <ref bean="teacherDaoImpl" />
+        </property>
+    </bean>
+    <bean id="administratorManager" class="service.AdministratorManagerImpl">
+        <property name="dao">
+            <ref bean="administratorDaoImpl" />
+        </property>
+    </bean>
+      <bean id="itemManager" class="service.ItemManagerImpl">
+        <property name="dao">
+            <ref bean="itemDaoImpl" />
+        </property>
+    </bean>
+    <bean id="gradeManager" class="service.GradeManagerImpl">
+        <property name="dao">
+            <ref bean="gradeDaoImpl" />
+        </property>
+    </bean>
+      <bean id="exampaperManager" class="service.ExampaperManagerImpl">
+        <property name="dao">
+            <ref bean="exampaperDaoImpl" />
         </property>
     </bean>
     
     <!-- action类注册 -->
     <bean id="loginAction" class="action.UserLoginAction">
-    	<property name="userManager">
-    		<ref bean="userManager"></ref>
+    	<property name="studentManager">
+    		<ref bean="studentManager"></ref>
+    	</property>
+    	<property name="administratorManager">
+    		<ref bean="administratorManager"></ref>
+    	</property>
+    	<property name="teacherManager">
+    		<ref bean="teacherManager"></ref>
     	</property>
     </bean>
     
     <bean id="registerAction" class="action.UserRegisterAction">
-    	<property name="userManager">
-    		<ref bean="userManager"></ref>
+    	<property name="studentManager">
+    		<ref bean="studentManager"></ref>
+    	</property>
+    </bean>
+    
+    <bean id="itemAction" class="action.ItemAction">
+    	<property name="itemManager">
+    		<ref bean="itemManager"></ref>
+    	</property>
+    </bean>
+    
+    <bean id="getGradeAction" class="action.getGradeAction">
+    	<property name="gradeManager">
+    		<ref bean="gradeManager"></ref>
     	</property>
     </bean>
     

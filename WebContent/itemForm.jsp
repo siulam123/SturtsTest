@@ -4,17 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Login Form</title>
+<title>Item Form</title>
 </head>
 <body>
-	<form action="login" method="post">
+	<form action="ItemAdd" method="post" id="usrform">
 	<table>
 		<caption><h3>User Login</h3></caption>
 		<tr>
-			<td>Username:<input type="text" name = "user_name"/></td>
+			<td>题目:<textarea name="Content" form="usrform">请在此处输入文本...</textarea> </td>
 		</tr>
 		<tr>
-			<td>Password:<input type="password" name = "user_password"/></td>
+			<td>类型:<input type="text" name = "Type"/></td>
+		</tr>
+		<tr>
+			<td>问题:<input type="text" name = "answer"/></td>
 		</tr>
 		<tr align="center">
 			<td colspan="2"><input type="submit" value="Login"/></td>

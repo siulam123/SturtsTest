@@ -8,18 +8,18 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.Action;
 
 import pojo.Student;
-import service.UserManagerImpl;
+import service.StudentManagerImpl;
 @Controller
 public class UserRegisterAction implements Action {
 	private String user_name;
 	private String user_password;
 	private String user_email;
-	private UserManagerImpl userManager;
+	private StudentManagerImpl userManager;
 
-	public UserManagerImpl getUserManager() {
+	public StudentManagerImpl getUserManager() {
 		return userManager;
 	}
-	public void setUserManager(UserManagerImpl userManager) {
+	public void setStudentManager(StudentManagerImpl userManager) {
 		this.userManager = userManager;
 	}
 	public String getUser_name() {

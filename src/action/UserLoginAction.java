@@ -8,62 +8,172 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.Action;
 
+import pojo.Administrator;
 import pojo.Student;
-import service.UserManagerImpl;
+import pojo.Teacher;
+import service.AdministratorManager;
+import service.AdministratorManagerImpl;
+import service.StudentManagerImpl;
+import service.TeacherManager;
+import service.TeacherManagerImpl;
 
 @Controller
 public class UserLoginAction implements Action{
 	
+	private static final String TEASUCCESS = "teasuccess";
+
 	private String contentType = "text/html;charset=utf-8";
-	private UserManagerImpl userManager;
-	private String user_name;
+	
+	private StudentManagerImpl studentManager;
+	private TeacherManagerImpl teacherManager;
+	private AdministratorManagerImpl administratorManager;
+
+	private String user_id;
 	private String user_password;
-	private Student user;
+	private String user_type;
 	
-	
-	
-    public String getUser_name() {
-		return user_name;
+	private Student student;
+	private Administrator administrator;
+	private Teacher teacher;
+
+
+	public Student getStudent() {
+		return student;
 	}
 
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 
+	public Administrator getAdministrator() {
+		return administrator;
+	}
+
+	public void setAdministrator(Administrator administrator) {
+		this.administrator = administrator;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+	
+	public String getUser_type() {
+		return user_type;
+	}
+	
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+	
+    public String getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
 
 	public String getUser_password() {
 		return user_password;
 	}
 
-
 	public void setUser_password(String user_password) {
 		this.user_password = user_password;
 	}
 
-
-	public UserManagerImpl getUserManager() {
-		return userManager;
+	public StudentManagerImpl getstudentManager() {
+		return studentManager;
+	}
+	
+	public TeacherManagerImpl getTeacherManager() {
+		return teacherManager;
 	}
 
+	public void setTeacherManager(TeacherManagerImpl teacherManager) {
+		this.teacherManager = teacherManager;
+	}
 
-	public void setUserManager(UserManagerImpl userManager) {
-		this.userManager = userManager;
+	public AdministratorManager getAdministratorManager() {
+		return administratorManager;
+	}
+
+	public void setAdministratorManager(AdministratorManagerImpl administratorManager) {
+		this.administratorManager = administratorManager;
+	}
+
+	public void setStudentManager(StudentManagerImpl studentManager) {
+		this.studentManager = studentManager;
 	}
 
 
 	public String execute() throws Exception
     {
-		user = new Student();
+		switch(user_type){
+			case "student":return loginStudent();
+			
+			case "teacher":return loginTeacher();
+
+			case "administrator":return loginAdministrator();
+			
+			case "register":return register();
+
+			default: return NONE;
+		}
+    }
+	
+	private String register(){
         ServletActionContext.getResponse().setContentType(contentType);
-        user.setStudentName(getUser_name());
-        user.setPassword(getUser_password());
-        if(userManager.login(user).equals("success")){
-        	return SUCCESS;
+		student.setStudentId("04140701");
+		student.setPassword("dahuang");
+		student.setStudentName("´ó»Æ");
+		if(studentManager.register(student)){
+			return SUCCESS;
+		}
+		return NONE;
+	}
+	
+	private String loginTeacher(){
+        ServletActionContext.getResponse().setContentType(contentType);
+        teacher.setTeacherId(getUser_id());
+        teacher.setPassword(getUser_password());
+        if(teacherManager.login(teacher).equals("success")){
+        	return TEASUCCESS;
         }
-        else if(userManager.login(user).equals("error"))
+        else if(teacherManager.login(teacher).equals("error"))
         	return ERROR;
         else
         	return NONE;
-    }
+	}
+	
+	private String loginStudent(){
+        ServletActionContext.getResponse().setContentType(contentType);
+        student.setStudentId(getUser_id());
+        student.setPassword(getUser_password());
+        if(studentManager.login(student).equals("success")){
+        	return SUCCESS;
+        }
+        else if(studentManager.login(student).equals("error"))
+        	return ERROR;
+        else
+        	return NONE;
+	}
+	
+	private String loginAdministrator(){
+		administrator = new Administrator();
+        ServletActionContext.getResponse().setContentType(contentType);
+        administrator.setAdministratorId(getUser_id());
+        administrator.setPassword(getUser_password());
+        administratorManager.login(administrator);
+        if(administratorManager.login(administrator).equals("success")){
+        	return SUCCESS;
+        }
+        else if(administratorManager.login(administrator).equals("error"))
+        	return ERROR;
+        else
+        	return NONE;
+	}
 }

@@ -5,7 +5,7 @@ import org.hibernate.HibernateException;
 
 import pojo.Student;
 
-public interface UserDao {
+public interface StudentDao {
 	
     public void saveObject(Student user) throws HibernateException;
     public List<Student> getStudents() throws HibernateException;

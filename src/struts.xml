@@ -4,8 +4,8 @@
 		"http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-
-	<package name="auction" extends="struts-default">
+	<constant name="struts.il8n.encoding" value="utf-8" />
+	<package name="aution" extends="struts-default,json-default">
 
 		<action name="index">
 			<result>/index.jsp</result>
@@ -13,9 +13,25 @@
 
 		<action name="login" class="action.UserLoginAction">
 			<result name="success">/welcome.jsp</result>
+			<result name="teasuccess">/teacher/teacher.jsp</result>
 		</action>
 		
 		<action name="register" class="action.UserRegisterAction">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		
+		<!--item-->
+		<action name="ItemAdd" class="action.ItemAction">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		<action name="ItemGet" class="action.ItemAction" method="getItems">
+			<result type="json" name="result">
+				<param name="data">data</param>
+			</result>
+		</action>
+		
+		<!--grade-->
+		<action name="getGrade" class="action.getGradeAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
 

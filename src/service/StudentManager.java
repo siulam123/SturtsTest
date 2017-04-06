@@ -17,7 +17,7 @@ import pojo.Student;
  * @since  
  * @return  
  */
-public interface UserManager {
+public interface StudentManager {
 	public String login(Student user) throws HibernateException;
 	public boolean register(Student user) throws HibernateException;
 	public List<Student> getStudents() throws HibernateException;
