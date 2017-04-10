@@ -15,7 +15,6 @@ public class ExampaperManagerImpl implements ExampaperManager{
     private ExampaperDao dao;  
 
     public ExampaperManagerImpl(){
-        dao = new ExampaperDaoImpl();
         System.out.println("ExampaperManager IN");
     }
     
@@ -29,6 +28,22 @@ public class ExampaperManagerImpl implements ExampaperManager{
     
     public boolean Upload(Exampaper exampaper) throws HibernateException{
     	dao.saveObject(exampaper);
+    	return true;
+    }
+    
+    public boolean setExampaper(String items,int id) throws HibernateException{
+    	String[] strs; 	 //定义一数组 
+		strs=items.split("->");    //字符分割 
+		
+    	for(int i = 0; i < strs.length; i++){
+    		if(strs[i]!=null){
+    			Exampaper exampaper = new Exampaper();
+    			exampaper.setItemId(i);
+    			exampaper.setExampaperId(id);
+    	    	dao.saveObject(exampaper);
+    		}
+    	}
+    	
     	return true;
     }
     

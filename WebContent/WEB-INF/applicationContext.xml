@@ -170,6 +170,12 @@
     	</property>
     </bean>
     
+    <bean id="teaExampaperAction" class="action.TeaExampaperAction">
+    	<property name="exampaperManager">
+    		<ref bean="exampaperManager"></ref>
+    	</property>
+    </bean>
+    
     <bean id="getGradeAction" class="action.getGradeAction">
     	<property name="gradeManager">
     		<ref bean="gradeManager"></ref>

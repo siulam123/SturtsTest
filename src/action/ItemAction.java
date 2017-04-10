@@ -15,7 +15,9 @@ import com.opensymphony.xwork2.Action;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import pojo.Exampaper;
 import pojo.Item;
+import service.ExampaperManagerImpl;
 import service.ItemManagerImpl;
 
 import org.apache.struts2.interceptor.RequestAware;
@@ -35,52 +37,38 @@ public class ItemAction implements Action  {
 	
 	private Item item;
 	
+	/*
+	 * mangeitemadd.jsp调用
+	 * 用于添加题目到题库
+	 */
 	public String execute() throws Exception
     {
 		ServletActionContext.getResponse().setContentType(contentType);
+		//设置属性
 		item.setContent(getContent());
 		item.setType(getType());
 		item.setAnswer(getAnswer());
+		item.setTime(item.getNowTime());
+		
+		//调用业务逻辑类存入数据库
 		if(ItemManager.Upload(item)){
         	return SUCCESS;
         }
 		return ERROR;
     }
 	
+	/*
+	 * itemlist.jsp、addexam调用
+	 * 作用：获取所有题目，将list<Object>转换为json返回前端
+	 */
 	public String getItems() throws Exception
 	{
 		ServletActionContext.getResponse().setContentType(contentType);
 		
-		Item i = new Item();
-		List<Object> list = new ArrayList<Object>();
-		i.setContent("hhhhh");
-		i.setAnswer("aaaaaa");
-		i.setType("hh");
-		i.setItemId(0);
-		list.add(i);
-		Item d = new Item();
-		d.setContent("yyyy");
-		d.setAnswer("bbbbb");
-		d.setType("hh");
-		d.setItemId(0);
-		list.add(d);
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("root",list);
-		
 		JSONArray jsonStr = JSONArray.fromObject(ItemManager.getItems());	
-		
-//		JSONObject cty=	JSONObject.fromObject(map);
-		
-//		JSONArray jsonStr = JSONArray.fromObject(list);
-		
+				
 		result = jsonStr.toString();
-		System.out.println(jsonStr.toString());
-//		InputStream inputStream = new ByteArrayInputStream(
-//				 jsonStr.getBytes("UTF-8"));
-	
-//		InputStream inputStream = new StringBufferInputStream(transcoding("struts2 返回 哈哈"));
-//		request.put("list", list);
-		System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+			
 		return "result";
 	}
 

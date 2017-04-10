@@ -8,6 +8,8 @@
         <property name="Content" />
         <property name="Type" />
         <property name="answer" />
+        <property name="time" />
+        <property name="degree" />
     </class>
     
 </hibernate-mapping>

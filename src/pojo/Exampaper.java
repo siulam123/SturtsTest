@@ -3,14 +3,14 @@ package pojo;
 public class Exampaper {
 	private int exampaperId;
 	private int itemId;
-	private int Id;
+	private int Id = 0;
 	
 	
 	public int getId() {
 		return Id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.Id = id;
 	}
 	public int getExampaperId() {
 		return exampaperId;

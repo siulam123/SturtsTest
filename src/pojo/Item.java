@@ -1,11 +1,34 @@
 package pojo;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Item {
 	private int 	itemId;
-	private	String	Content;
-	private String	Type;
-	private	String	answer;
+	private	String	Content;	//题目
+	private String	Type;		//类型
+	private	String	answer;		//答案
+	private String	time;		//时间戳
+	private int 	degree = 1; //难度	默认为1（1到4难度递增）
 	
+	public int getDegree() {
+		return degree;
+	}
+	public void setDegree(int degree) {
+		this.degree = degree;
+	}
+	public String getNowTime(){
+		SimpleDateFormat sdf = 
+				new SimpleDateFormat("yyyy-MM-dd");
+		String timestamp = sdf.format(new Date());
+		return timestamp;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
+	}
 	public int getItemId() {
 		return itemId;
 	}
