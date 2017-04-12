@@ -42,93 +42,105 @@
             <th>试卷编码</th>
             <th>试卷名字</th>
             <th>管理</th>
+            <th>时间</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a></td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**">get试卷的标题</a></td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>
           </tr>
           <tr>
             <td>2</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>
           </tr>
           <tr>
             <td>3</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>4</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>5</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>6</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>7</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a></td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a></td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>8</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>9</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>10</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>11</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
+            <td>2017-4-6 11:38</td>            
           </tr>
           <tr>
             <td>12</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题4</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题4</a> </td>
+            <td><a href="**">删除</a></td>
           </tr>
           <tr>
             <td>13</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a></td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a></td>
+            <td><a href="**">删除</a></td>
           </tr>
           <tr>
             <td>14</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**" >删除</a></td>
           </tr>
           <tr>
             <td>15</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
           </tr>
           <tr>
             <td>16</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**" >删除</a></td>
           </tr>
           <tr>
             <td>17</td>
-            <td><a href="**"  style="text-decoration:none"> get试卷的标题</a> </td>
-            <td><a href="**"  style="text-decoration:none">删除</a></td>
+            <td><a href="**"> get试卷的标题</a> </td>
+            <td><a href="**">删除</a></td>
           </tr>
           <tr>
             <td>18</td>
@@ -175,9 +187,7 @@
     <div class="half right">
       <h2>吉珠老师</h2>
       <ul class="overview">
-		<li>修改试卷</li>
-		<li>删除试卷</li>
-		<li>增加试卷</li>
+		<li><a href="**" style="text-decoration:none">增加试卷 </a></li>
       </ul>
       <p><img src="../images/1.jpg"   width="260" height="250"/></p>
       <p>&nbsp;</p>
