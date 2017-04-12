@@ -18,8 +18,6 @@ public class ExampaperDaoImpl extends HibernateDaoSupport implements ExampaperDa
     }
 	
     public void saveObject(Exampaper obj) throws HibernateException {
-//        getHibernateTemplate().save(obj);
-    	Object o = (Object)getHibernateTemplate();
         getHibernateTemplate().save(obj);
     }  
     

@@ -3,12 +3,13 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-mapping>
-    <class name="pojo.Exampaper">
-        <id name="Id">
-        	<generator class="identity" />
-        </id>
-        <property name="exampaperId" />
-        <property name="itemId" />
+    <class name="pojo.Exam">
+    	<composite-id>
+			<key-property name="examId"/>
+			<key-property name="examPaperId"/>
+		</composite-id>
+        <property name="examName" />
+        <property name="examTime" />
     </class>
     
 </hibernate-mapping>

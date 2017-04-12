@@ -18,11 +18,11 @@ public class TeaExampaperAction  implements Action {
     {
 		ServletActionContext.getResponse().setContentType(contentType);
 		//设置属性
-		exampaper.setExampaperId(10);
+		exampaper.setExampaperId("10");
 		exampaper.setItemId(5);
 		
 		//调用业务逻辑类存入数据库
-		if(exampaperManager.Upload(exampaper)){
+		if(exampaperManager.setExampaper(exampaper)){
         	return SUCCESS;
         }
 		return ERROR;
@@ -35,6 +35,4 @@ public class TeaExampaperAction  implements Action {
 	public void setExampaper(Exampaper exampaper) {
 		this.exampaper =  exampaper;
 	}
-	
-	
 }

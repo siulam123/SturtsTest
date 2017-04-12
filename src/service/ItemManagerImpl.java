@@ -6,7 +6,6 @@ import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
 import dao.ItemDao;
-import daoImpl.ItemDaoImpl;
 import pojo.Item;
 import service.ItemManager;
 
@@ -15,7 +14,6 @@ public class ItemManagerImpl implements ItemManager{
     private ItemDao dao;  
 
     public ItemManagerImpl(){
-        dao = new ItemDaoImpl();
         System.out.println("ItemManager IN");
     }
     
@@ -40,7 +38,7 @@ public class ItemManagerImpl implements ItemManager{
         return dao.getItemsByType(type);
     }
     
-    public Item getItemById(String itemId) throws HibernateException {  
+    public Item getItemById(int itemId) throws HibernateException {  
         return dao.getItemById(itemId);
     }
     

@@ -35,15 +35,16 @@
 			<result name="success">/welcome.jsp</result>
 		</action>
 		
-		<!--exam-->
-		<action name="getGrade" class="action.getGradeAction">
-			<result name="success">/welcome.jsp</result>
-		</action>
-		
 		<!--Exampaper-->
 		<action name="setExampaper" class="action.TeaExampaperAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
+		
+		<!--Exam-->
+		<action name="setExam" class="action.TeaExamAction" method="addExam">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		
 
 		<action name="*">
 			<result>/{1}.jsp</result>

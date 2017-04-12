@@ -55,6 +55,7 @@
                 <value>pojo/Item.hbm.xml</value>
                 <value>pojo/Grade.hbm.xml</value>
                 <value>pojo/Exampaper.hbm.xml</value>
+                <value>pojo/Exam.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -104,6 +105,11 @@
             <ref bean="sessionFactory" />
         </property>
     </bean>
+    <bean id="examDaoImpl" class="daoImpl.ExamDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
     
     <!-- model类注册 -->
     <bean id="student" class="pojo.Student"></bean>
@@ -112,6 +118,7 @@
     <bean id="item" class="pojo.Item"></bean>
     <bean id="grade" class="pojo.Grade"></bean>
     <bean id="exampaper" class="pojo.Exampaper"></bean>
+    <bean id="exam" class="pojo.Exam"></bean>
     
     <!-- service类注册 -->
     <bean id="studentManager" class="service.StudentManagerImpl">
@@ -139,9 +146,20 @@
             <ref bean="gradeDaoImpl" />
         </property>
     </bean>
-      <bean id="exampaperManager" class="service.ExampaperManagerImpl">
+    <bean id="exampaperManager" class="service.ExampaperManagerImpl">
         <property name="dao">
             <ref bean="exampaperDaoImpl" />
+        </property>
+        <property name="itemManager">
+            <ref bean="itemManager" />
+        </property>
+    </bean>
+    <bean id="examManager" class="service.ExamManagerImpl">
+        <property name="dao">
+            <ref bean="examDaoImpl" />
+        </property>
+        <property name="exampaperManager">
+            <ref bean="exampaperManager" />
         </property>
     </bean>
     
@@ -180,7 +198,15 @@
     	<property name="gradeManager">
     		<ref bean="gradeManager"></ref>
     	</property>
-    </bean>
+    </bean> 
+    <bean id="teaExamAction" class="action.TeaExamAction">
+    	<property name="examManager">
+    		<ref bean="examManager"></ref>
+    	</property>
+    	<property name="exampaperManager">
+    		<ref bean="exampaperManager"></ref>
+    	</property>
+    </bean> 
     
     <aop:aspectj-autoproxy proxy-target-class="true" />
 

@@ -1,18 +1,21 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
 import dao.ExampaperDao;
-import daoImpl.ExampaperDaoImpl;
 import pojo.Exampaper;
 import service.ExampaperManager;
+import service.ItemManager;
 
 @Service
 public class ExampaperManagerImpl implements ExampaperManager{
-    private ExampaperDao dao;  
+    private ExampaperDao dao;
+    private ItemManager itemManager;
 
     public ExampaperManagerImpl(){
         System.out.println("ExampaperManager IN");
@@ -26,19 +29,40 @@ public class ExampaperManagerImpl implements ExampaperManager{
         this.dao = dao;
     }
     
-    public boolean Upload(Exampaper exampaper) throws HibernateException{
+    public void setItemManager(ItemManager itemManager){
+    	this.itemManager = itemManager;
+    }
+    
+    public boolean setExampaper(Exampaper exampaper) throws HibernateException{
     	dao.saveObject(exampaper);
     	return true;
     }
     
-    public boolean setExampaper(String items,int id) throws HibernateException{
+    public List<Exampaper> getExampaperById(String exampaperId){
+    	return dao.getExampaperByExampaperId(exampaperId);
+    }
+    
+    public List<Object> getItemsByPapers(List<Exampaper> exampapers){
+    	List<Object> list = new ArrayList<Object>();
+    	Iterator item = exampapers.iterator();
+    	while(item.hasNext()){
+    		Exampaper exampaper = (Exampaper)item.next();
+    		
+    		//将根据itemId获取的item存入list
+    		list.add(itemManager.getItemById(exampaper.getItemId()));
+    	}
+    	//返回list<item>
+    	return list;
+    }
+    
+    public boolean setExampaper(String items,String id) throws HibernateException{
     	String[] strs; 	 //定义一数组 
 		strs=items.split("->");    //字符分割 
 		
     	for(int i = 0; i < strs.length; i++){
     		if(strs[i]!=null){
     			Exampaper exampaper = new Exampaper();
-    			exampaper.setItemId(i);
+    			exampaper.setItemId(Integer.parseInt(strs[i]));
     			exampaper.setExampaperId(id);
     	    	dao.saveObject(exampaper);
     		}
@@ -46,11 +70,6 @@ public class ExampaperManagerImpl implements ExampaperManager{
     	
     	return true;
     }
-    
-    public List<Exampaper> getExampaperByExampaperId(String exampaperId) throws HibernateException {  
-        return dao.getExampaperByExampaperId(exampaperId);
-    }
-    
 
 	@Override
 	public boolean reflect(Exampaper exampaper, Double amount) throws HibernateException {

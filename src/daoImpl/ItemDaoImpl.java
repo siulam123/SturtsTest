@@ -31,7 +31,7 @@ public class ItemDaoImpl extends HibernateDaoSupport implements ItemDao{
         return (List<Item>) list;
     }
     
-    public Item getItemById(String itemId) throws HibernateException{
+    public Item getItemById(int itemId) throws HibernateException{
     	List<?> list =getHibernateTemplate().find("FROM Item U WHERE U.itemId = ?0",itemId);
     	//
     	if(list.size()!=0)

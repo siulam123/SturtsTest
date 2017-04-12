@@ -13,7 +13,7 @@ public interface ItemDao {
     //更新题目
 	public void updateObject(Item item) throws HibernateException;
 	//按题目id查找题目
-	public Item getItemById(String itemId) throws HibernateException;
+	public Item getItemById(int itemId) throws HibernateException;
 	//按照题目类型查找
 	public List<Item> getItemsByType(String type) throws HibernateException;
 

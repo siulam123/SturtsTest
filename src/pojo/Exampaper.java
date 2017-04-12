@@ -1,21 +1,21 @@
 package pojo;
 
 public class Exampaper {
-	private int exampaperId;
+	private String exampaperId;
 	private int itemId;
-	private int Id = 0;
+	private Integer Id;
 	
 	
-	public int getId() {
+	public Integer getId() {
 		return Id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.Id = id;
 	}
-	public int getExampaperId() {
+	public String getExampaperId() {
 		return exampaperId;
 	}
-	public void setExampaperId(int exampaperId) {
+	public void setExampaperId(String exampaperId) {
 		this.exampaperId = exampaperId;
 	}
 	public int getItemId() {
