@@ -48,7 +48,7 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td><a href="**">get试卷的标题</a></td>
+            <td><a href="detailexam.jsp">get试卷的标题1</a></td>
             <td><a href="**">删除</a></td>
             <td>2017-4-6 11:38</td>
           </tr>
@@ -187,7 +187,7 @@
     <div class="half right">
       <h2>吉珠老师</h2>
       <ul class="overview">
-		<li><a href="**" style="text-decoration:none">增加试卷 </a></li>
+		<li><a href="manageexamadd.jsp" style="text-decoration:none">增加试卷 </a></li>
       </ul>
       <p><img src="../images/1.jpg"   width="260" height="250"/></p>
       <p>&nbsp;</p>

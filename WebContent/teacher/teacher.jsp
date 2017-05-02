@@ -38,25 +38,13 @@
 		  <h3 class="space">姓名：....</h3>
 		  <nav class="nav default">
 			<ul>
-			  <li class="nav__item active"><a href="#">管理试卷</a></li>
-			  <li class="nav__item"><a href="#">管理题库</a></li>
-			  <li class="nav__item"><a href="#">查看成绩</a></li>
+			  <li class="nav__item active"><a href="manageexam.jsp">管理试卷</a></li>
+			  <li class="nav__item"><a href="manageitemsearch.jsp">管理题库</a></li>
+			  <li class="nav__item"><a href="searchgrade.jsp">查看成绩</a></li>
 			</ul>
 		  </nav>
 	</div>
 </div>
-</form>
-<!-- 	<form action="">
-	<font >姓名：....</font> 
-	<div class="manage">
-		<a href="**action">管理试卷</a>
-	</div>自动随机组卷
-	<div class="manage">
-	<a href="**action">管理题库</a>
-	</div>
-	<div class="manage">
-	<a href="**action">查看成绩</a>查询已考试卷
-	</div>
- 	</form> -->
+
 </body>
 </html>

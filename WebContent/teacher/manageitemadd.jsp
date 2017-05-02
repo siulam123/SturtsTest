@@ -26,7 +26,7 @@ $(document).ready(function(){
 <div id="container">
 	<div id="main">
 	<div id="title">
-		<font face="楷体" size="40">老师增加题目</font>
+		<font face="楷体" size="60">老师增加题目</font>
 	</div><br>
 		选择要增加题目的题型：
 		<select id="select" name="select" >
@@ -40,10 +40,10 @@ $(document).ready(function(){
 			选择题题目:<br>
 			..<textarea rows="9" cols="70" style="max-width: 500px;"></textarea><br>
 			答案：<br>
-			A:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="A" />-><br>
-			B:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="B" />-><br>
-			C:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="C" />-><br>
-			D:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="D" />-><br>
+			A:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="A" /><br>
+			B:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="B" /><br>
+			C:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="C" /><br>
+			D:<input  type="text" style="overflow-x:visible;width:500px;height:25px;" value="D" /><br>
 		</div>
 		<!-- 判断题的块 -->
 		<div id="judge" style="display:none;">
@@ -74,36 +74,4 @@ $(document).ready(function(){
 	</div>
 </div>
 </body>
-<!-- <form action="mangeitem">
-	<div id="container">
-	<div id="title">
-		<font face="楷体" size="40">老师增加题目</font>
-	</div><br>
-	<div id="main">
-		<select name="select"class="select">
-			<option id="choice" value="choice">选择题</option>	
-			<option id="judge" value="judge">判断题</option>
-			<option id="blankfiling" value="blankfiling">填空题</option>
-			<option id="program" value="program">编程题</option>		
-		</select>
-		<div id="choice">
-			选择题目内容：
-			<textarea rows="9" cols="70" style="max-width: 500px;"></textarea><br>
-			答案：
-			<textarea rows="6" cols="70" style="max-width: 500px;"></textarea>
-		</div>
-		<div id="judge" style="display:none;">
-		 	判断题目内容：
-			<textarea rows="9" cols="70" style="max-width: 500px;"></textarea><br>
-			答案：Y N
-			<textarea rows="6" cols="70" style="max-width: 500px;"></textarea>	
-		</div> 
-		<div>
-			<input type="submit" class="btn-style" value="提交" width="3px">&nbsp;&nbsp;
-			<input type="reset" class="btn-style" value="重置">	
-		</div>
-		</div>				
-	</div>
-</form>
-</body> -->
 </html>

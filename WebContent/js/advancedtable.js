@@ -223,7 +223,7 @@
 				if(table.find('thead th a').length == 0){
 					var sorthandle = 0;
 					table.find('thead th').each(function() { 
-						$(this).html('<a href="javascript:void();" id="sorthandle' + sorthandle + '">' + $(this).html() + '</a><span id="sortaschandle' + sorthandle + '" class="sortshowhandle"><img src="' + settings.ascImage + '" alt="Arrow up icon"/></span><span id="sortdeschandle' + sorthandle + '" class="sortshowhandle"><img src="' + settings.descImage + '" alt="Arrow down icon"/></span><span id="sorttypehandle" class="allsorttypehandle" style="display:none"></span>');
+						$(this).html('<a href="javascript:void();" id="sorthandle' + sorthandle + '" text-decoration:none;>' + $(this).html() + '</a><span id="sortaschandle' + sorthandle + '" class="sortshowhandle"><img src="' + settings.ascImage + '" alt="Arrow up icon"/></span><span id="sortdeschandle' + sorthandle + '" class="sortshowhandle"><img src="' + settings.descImage + '" alt="Arrow down icon"/></span><span id="sorttypehandle" class="allsorttypehandle" style="display:none"></span>');
 						$(this).bind('click', sortTable);
 						sorthandle++;
 					});

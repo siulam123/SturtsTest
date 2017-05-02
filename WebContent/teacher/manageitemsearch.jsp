@@ -34,7 +34,7 @@
         	</div>
           </td>
           <td width="25%">
-          <a href="../teacher/mangeitemadd.jsp" style="text-decoration:none;" >增加题目</a></td>
+          <a href="manageitemadd.jsp" style="text-decoration:none;" >增加题目</a></td>
         </tr>
       </table>
       <table width="100%" id="table1" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
@@ -301,41 +301,4 @@
     </div>
   </div>
 </body>
-<!-- <body>
-	<div>
-		<div>
-			<font>输入题号：</font>
-			<input type="text" name="examId">	
-			<input type="submit" value="查找">
-			<a href="../teacher/mangeitemadd.jsp">增加题目</a>	
-		</div>
-		<div id="choice">
-		<div class="choiceCss">
-		选择题题目<br>
-		<input name="radio" type="radio" value="A" />A:A选项
-		<input name="radio" type="radio" value="B" />B:B选项
-		<input name="radio" type="radio" value="C" />C:C选项
-		<input name="radio" type="radio" value="D" />D:D选项
-		答案：答案内容；<br>
-		<a href="**">删除</a><br>
-		</div>
-		</div>
-	<div id="judge">
-		<div class="judgeCss">
-		判断题题目<br>
-		<input name="X" type="radio" value="C" />Y
-		<input name="X" type="radio" value="D" />N
-		答案：答案内容；<br>
-		<a href="**">删除</a><br>
-		</div>
-	</div>
-	<div id="blankfiling">
-		<div id="blankfilingCss">		
-		填空题题目<br>
-		答案：答案内容；<br>
-		<a href="**">删除</a><br>
-		</div>
-	</div>	
-	</div>
-</body> -->
 </html>
