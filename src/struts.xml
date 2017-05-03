@@ -15,39 +15,57 @@
 			<result name="success">/welcome.jsp</result>
 			<result name="teasuccess">/teacher/teacher.jsp</result>
 		</action>
-		
+
 		<action name="register" class="action.UserRegisterAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-		
-		<!--item-->
-		<action name="ItemAdd" class="action.ItemAction">
-			<result name="success">/welcome.jsp</result>
-		</action>
-		<action name="ItemGet" class="action.ItemAction" method="getItems">
+
+		<!--item -->
+		<action name="getAllItems" class="action.ItemAction" method="getAllItems">
 			<result type="json" name="result">
 				<param name="data">data</param>
 			</result>
 		</action>
-		
-		<!--grade-->
-		<action name="getGrade" class="action.getGradeAction">
+		<action name="ItemAdd" class="action.ItemAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-		
-		<!--Exampaper-->
+		<action name="hhh" class="action.ItemAction" method="getItemsById">
+			<result type="json" name="result">
+				<param name="data">data</param>
+			</result>
+		</action>
+
+		<!--grade -->
+		<action name="getGrade" class="action.GradeAction">
+			<result name="success">/welcome.jsp</result>
+		</action>
+
+		<!--Exampaper -->
 		<action name="setExampaper" class="action.TeaExampaperAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-		
-		<!--Exam-->
+
+		<!--Exam -->
 		<action name="setExam" class="action.TeaExamAction" method="addExam">
 			<result name="success">/welcome.jsp</result>
 		</action>
-		
+		<action name="RandomExam" class="action.TeaExamAction" method="RandomExam">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		<action name="getAllExam" class="action.TeaExamAction" method="getAllExam">
+			<result type="json" name="result">
+				<param name="data">data</param>
+			</result>
+		</action>
+		<action name="itemlist" class="action.TeaExamAction" method="itemlist">
+			<result name="success">/teacher/manageexamitemlist.jsp</result>
+		</action>
 
-		<action name="*">
-			<result>/{1}.jsp</result>
+		<!-- chj判题 -->
+		<action name="SubmitAction" class="action.SubmitAction">
+		</action>
+		<action name="SubmitAction" class="action.SubmitAction">
+			<result name="success">/teacher/manageexamitemlist.jsp</result>
 		</action>
 	</package>
 

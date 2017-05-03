@@ -1,6 +1,5 @@
 package pojo;
 
-import javax.persistence.*;
 
 public class Administrator {
 

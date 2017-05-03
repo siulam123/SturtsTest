@@ -35,12 +35,12 @@
 <form action="">
 <div class="zzsc-container">
 	<div class="c">
-		  <h3 class="space">姓名：</h3>
+		  <h3 class="space">姓名：....</h3>
 		  <nav class="nav default">
 			<ul>
-			  <li class="nav__item active"><a href="#">管理试卷</a></li>
-			  <li class="nav__item"><a href="#">管理题库</a></li>
-			  <li class="nav__item"><a href="#">查看成绩</a></li>
+			  <li class="nav__item active"><a href="manageexam.jsp">管理试卷</a></li>
+			  <li class="nav__item"><a href="manageitemsearch.jsp">管理题库</a></li>
+			  <li class="nav__item"><a href="searchgrade.jsp">查看成绩</a></li>
 			</ul>
 		  </nav>
 	</div>
