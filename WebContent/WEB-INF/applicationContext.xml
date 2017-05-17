@@ -56,6 +56,8 @@
                 <value>pojo/Grade.hbm.xml</value>
                 <value>pojo/Exampaper.hbm.xml</value>
                 <value>pojo/Exam.hbm.xml</value>
+                <value>pojo/AnswerExam.hbm.xml</value>
+                <value>pojo/Answer.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -110,6 +112,16 @@
             <ref bean="sessionFactory" />
         </property>
     </bean>
+    <bean id="answerExamDaoImpl" class="daoImpl.AnswerExamDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="answerDaoImpl" class="daoImpl.AnswerDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
     
     <!-- model类注册 -->
     <bean id="student" class="pojo.Student"></bean>
@@ -119,6 +131,9 @@
     <bean id="grade" class="pojo.Grade"></bean>
     <bean id="exampaper" class="pojo.Exampaper"></bean>
     <bean id="exam" class="pojo.Exam"></bean>
+    <bean id="examParamters" class="pojo.ExamParamters"></bean>
+    <bean id="answerExam" class="pojo.AnswerExam"></bean>
+    <bean id="answer]" class="pojo.Answer"></bean>
     
     <!-- service类注册 -->
     <bean id="studentManager" class="service.StudentManagerImpl">
@@ -162,6 +177,16 @@
             <ref bean="exampaperManager" />
         </property>
     </bean>
+    <bean id="answerExamManager" class="service.AnswerExamManagerImpl">
+        <property name="dao">
+            <ref bean="answerExamDaoImpl" />
+        </property>
+    </bean>
+    <bean id="answerManager" class="service.AnswerManagerImpl">
+        <property name="dao">
+            <ref bean="answerDaoImpl" />
+        </property>
+    </bean>
     
     <!-- action类注册 -->
     <bean id="loginAction" class="action.UserLoginAction">
@@ -194,7 +219,7 @@
     	</property>
     </bean>
     
-    <bean id="getGradeAction" class="action.getGradeAction">
+    <bean id="gradeAction" class="action.GradeAction">
     	<property name="gradeManager">
     		<ref bean="gradeManager"></ref>
     	</property>
@@ -205,6 +230,23 @@
     	</property>
     	<property name="exampaperManager">
     		<ref bean="exampaperManager"></ref>
+    	</property>
+    </bean> 
+    <bean id="stuExamAction" class="action.StuExamAction">
+    	<property name="examManager">
+    		<ref bean="examManager"></ref>
+    	</property>
+    	<property name="exampaperManager">
+    		<ref bean="exampaperManager"></ref>
+    	</property>
+    	<property name="itemManager">
+    		<ref bean="itemManager"></ref>
+    	</property>
+    	<property name="answerExamManager">
+    		<ref bean="answerExamManager"></ref>
+    	</property>
+    	<property name="answerManager">
+    		<ref bean="answerManager"></ref>
     	</property>
     </bean> 
     

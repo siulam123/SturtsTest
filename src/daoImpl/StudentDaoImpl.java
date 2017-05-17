@@ -18,7 +18,6 @@ public class StudentDaoImpl extends HibernateDaoSupport implements StudentDao{
 	
     public void saveObject(Student obj) throws HibernateException {
         getHibernateTemplate().save(obj);
-        
     }  
 
     public List<Student> getStudents() throws HibernateException{

@@ -31,11 +31,11 @@
     <div class="contentCss">
 	<div class="choice">
 		<div class="choiceCss">
-			选择题题目<br>
-		<input name="radio" type="radio" value="A" />A:A选项
-		<input name="radio" type="radio" value="B" />B:B选项<br>
-		<input name="radio" type="radio" value="C" />C:C选项
-		<input name="radio" type="radio" value="D" />D:D选项
+			1、选择题题目<br>
+		<input name="radio" type="radio" value="A" disabled />A:A选项
+		<input name="radio" type="radio" value="B" disabled/>B:B选项<br>
+		<input name="radio" type="radio" value="C" disabled/>C:C选项
+		<input name="radio" type="radio" value="D" disabled/>D:D选项
 		<div class="answerCss">
 			答案：答案内容；
 		</div><br>
@@ -43,9 +43,9 @@
 	</div>
 	<div class="judge">
 		<div class="judgeCss">
-			判断题题目<br>
-		<input name="X" type="radio" value="C" />Y
-		<input name="X" type="radio" value="D" />N
+			2、判断题题目<br>
+		<input name="X" type="radio" value="C" disabled/>Y
+		<input name="X" type="radio" value="D" disabled/>N
 		<div class="answerCss">
 			答案：答案内容；
 		</div><br>
@@ -53,12 +53,16 @@
 	</div>
 	<div class="blankfiling">
 		<div id="blankfilingCss">		
-			填空题题目<br>
+			3、填空题题目<br>
 		<div class="answerCss">
 			答案：答案内容；
 		</div><br>
 		</div>
 	</div>
+	</div>
+	<div>
+		<input type="submit" value="继续组卷" >
+		<input type="submit" value="取消">
 	</div>
 	</div>
 </div>

@@ -13,7 +13,7 @@ public interface ExamDao {
     //更新试卷
 	public void updateObject(Exam exam) throws HibernateException;
 	//按试卷id查找
-	public Exam getExamById(String examId) throws HibernateException;
+	public List<Exam> getExamById(Integer examId) throws HibernateException;
 	//按试卷id查找ExampaperId
 	public String getExampaperIdByExamId(Exam exam) throws HibernateException;
 	    

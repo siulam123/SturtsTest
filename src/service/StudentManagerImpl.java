@@ -24,6 +24,10 @@ public class StudentManagerImpl implements StudentManager{
     public void setDao(StudentDaoImpl dao) {
         this.dao = dao;
     }
+    
+    public Student findObject(Student student) throws HibernateException{
+    	return dao.findStudent(student);
+    }
 
     public List<Student> getStudents() throws HibernateException {  
         return dao.getStudents();

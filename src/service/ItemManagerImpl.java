@@ -1,11 +1,13 @@
 package service;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
 import dao.ItemDao;
+import pojo.Exampaper;
 import pojo.Item;
 import service.ItemManager;
 
@@ -41,6 +43,7 @@ public class ItemManagerImpl implements ItemManager{
     public Item getItemById(int itemId) throws HibernateException {  
         return dao.getItemById(itemId);
     }
+   
     
 
 	@Override
