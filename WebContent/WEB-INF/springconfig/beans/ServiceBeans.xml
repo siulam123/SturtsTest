@@ -13,57 +13,61 @@
 
 	<!-- service类注册 -->
 	<bean id="studentManager" class="service.StudentManagerImpl">
-        <property name="dao">
-            <ref bean="studentDaoImpl" />
-        </property>
-    </bean>
-    <bean id="teacherManager" class="service.TeacherManagerImpl">
-        <property name="dao">
-            <ref bean="teacherDaoImpl" />
-        </property>
-    </bean>
-    <bean id="administratorManager" class="service.AdministratorManagerImpl">
-        <property name="dao">
-            <ref bean="administratorDaoImpl" />
-        </property>
-    </bean>
-      <bean id="itemManager" class="service.ItemManagerImpl">
-        <property name="dao">
-            <ref bean="itemDaoImpl" />
-        </property>
-    </bean>
-    <bean id="gradeManager" class="service.GradeManagerImpl">
-        <property name="dao">
-            <ref bean="gradeDaoImpl" />
-        </property>
-    </bean>
-    <bean id="exampaperManager" class="service.ExampaperManagerImpl">
-        <property name="dao">
-            <ref bean="exampaperDaoImpl" />
-        </property>
-        <property name="itemManager">
-            <ref bean="itemManager" />
-        </property>
-    </bean>
-    <bean id="examManager" class="service.ExamManagerImpl">
-        <property name="dao">
-            <ref bean="examDaoImpl" />
-        </property>
-        <property name="exampaperManager">
-            <ref bean="exampaperManager" />
-        </property>
-    </bean>
-    <bean id="answerExamManager" class="service.AnswerExamManagerImpl">
-        <property name="dao">
-            <ref bean="answerExamDaoImpl" />
-        </property>
-    </bean>
-    <bean id="answerManager" class="service.AnswerManagerImpl">
-        <property name="dao">
-            <ref bean="answerDaoImpl" />
-        </property>
-    </bean>
-    <!-- chj -->
+		<property name="dao">
+			<ref bean="studentDaoImpl" />
+		</property>
+	</bean>
+	<bean id="teacherManager" class="service.TeacherManagerImpl">
+		<property name="dao">
+			<ref bean="teacherDaoImpl" />
+		</property>
+	</bean>
+	<bean id="administratorManager" class="service.AdministratorManagerImpl">
+		<property name="dao">
+			<ref bean="administratorDaoImpl" />
+		</property>
+	</bean>
+	<bean id="itemManager" class="service.ItemManagerImpl">
+		<property name="dao">
+			<ref bean="itemDaoImpl" />
+		</property>
+	</bean>
+	<bean id="gradeManager" class="service.GradeManagerImpl">
+		<property name="dao">
+			<ref bean="gradeDaoImpl" />
+		</property>
+	</bean>
+	<bean id="exampaperManager" class="service.ExampaperManagerImpl">
+		<property name="dao">
+			<ref bean="exampaperDaoImpl" />
+		</property>
+		<property name="itemManager">
+			<ref bean="itemManager" />
+		</property>
+		<property name="problemManager">
+			<ref bean="problemManager"></ref>
+		</property>
+
+	</bean>
+	<bean id="examManager" class="service.ExamManagerImpl">
+		<property name="dao">
+			<ref bean="examDaoImpl" />
+		</property>
+		<property name="exampaperManager">
+			<ref bean="exampaperManager" />
+		</property>
+	</bean>
+	<bean id="answerExamManager" class="service.AnswerExamManagerImpl">
+		<property name="dao">
+			<ref bean="answerExamDaoImpl" />
+		</property>
+	</bean>
+	<bean id="answerManager" class="service.AnswerManagerImpl">
+		<property name="dao">
+			<ref bean="answerDaoImpl" />
+		</property>
+	</bean>
+	<!-- chj -->
 	<bean id="solutionManager" class="service.chj.SolutionManagerImpl">
 		<property name="solutionDaoImpl">
 			<ref bean="solutionDaoImpl" />

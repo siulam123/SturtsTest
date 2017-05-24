@@ -22,14 +22,17 @@ $(document).ready(function () {
 	//$.each('${items}', function(index,value){
 	
 	var json = eval(${items});
+	var codejson = eval(${codes});
 	
 	var blankfilinghtml = "";
 	var choicehtml = "";
 	var judgehtml = "";
+	var codehtml="";
 	
 	var blankfiling=1;
 	var choice=1;
 	var judge=1;
+	var code=1;
 	$.each(json, function(index,value){
 		
 		if(json[index].type == "blankfiling"){//填空题
@@ -66,6 +69,17 @@ $(document).ready(function () {
 						"</div>"
 						judge++;
         }
+		
+		
+	});//list遍历完结
+	$.each(codejson,function(index,value){
+        	codehtml+="<div class='codeCss'>"+
+						code+"."+
+						codejson[index].title+"<br>"+
+						$(codejson[index].description).html()+"<br>"+
+						"输入："+codejson[index].input+"输出："+codejson[index].output+"<br>"+
+						"</div>"
+						code++;
 	});//list遍历完结
 	if(blankfilinghtml == ""){
 		$("#blankfilingCss").hide();
@@ -86,6 +100,13 @@ $(document).ready(function () {
 	}
 	else{
 		$("#judge").html(judgehtml);
+	}
+	
+	if(codehtml == ""){
+		$("#codeCss").hide();
+	}
+	else{
+		$("#code").html(codehtml);
 	}
 	
 }); //@ sourceURL=pen.js
@@ -109,7 +130,7 @@ window.onload=function(){
 };
 */
 </script> 
-<script src="js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script>
 $(function(){
 	$("#showdiv").click(function(){
@@ -151,6 +172,10 @@ $(function(){
 		</div>
 		<div class="contentCss" id="blankfilingCss" style="border: 1px solid #ffff00;">
 			<div id="blankfiling">
+			</div>
+		</div>
+		<div class="contentCss" id="codeCss" style="border: 1px solid #ffff00;">
+			<div id="code">
 			</div>
 		</div>
 	<div>

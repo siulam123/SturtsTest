@@ -1,27 +1,13 @@
 package action;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.io.StringBufferInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.Action;
-
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import pojo.Exampaper;
 import pojo.Item;
-import service.ExampaperManagerImpl;
 import service.ItemManagerImpl;
 import tool.DataTool;
 
-import org.apache.struts2.interceptor.RequestAware;
 
 
 @Controller

@@ -13,5 +13,8 @@ import pojo.Problem;
 public interface ProblemManager {
 	//分页获得题目
 	public List<Problem> getProblems(int page);
+	
+	//通过problemid获得题目
+	public Problem getProblemById(int problemid);
 }
  

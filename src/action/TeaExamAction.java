@@ -16,9 +16,11 @@ import net.sf.json.JSONObject;
 import pojo.Exam;
 import pojo.ExamParamters;
 import pojo.Item;
+import pojo.Problem;
 import service.ExamManager;
 import service.ExampaperManager;
 import service.ExampaperManagerImpl;
+import service.chj.ProblemManager;
 import tool.DataTool;
 
 
@@ -29,6 +31,8 @@ public class TeaExamAction implements Action, SessionAware{
 	
 	private ExamManager examManager;
 	private ExampaperManager exampaperManager;
+	
+
 	
 	//试卷种类
 	private String[] strs= {"A","B","C","D","E","F","G","H"};
@@ -103,11 +107,15 @@ public class TeaExamAction implements Action, SessionAware{
 	public String itemlist(){
 		items = getItems();
 		List<Object> obj = new ArrayList<Object>();
+		List<Problem> problems = new ArrayList<Problem>();
 		if(!getItems().equals("")&&getItems()!=null){
-			obj = exampaperManager.getItemlist(getItems());
+			obj.addAll(exampaperManager.getItemlist(getItems()));
+			problems.addAll(exampaperManager.getProblemList(getItems()));
 		}
+		
 
 		session.put("items", DataTool.getJson(obj));
+		session.put("codes", DataTool.getJson(problems));
 		return "success";
 	}
 	
