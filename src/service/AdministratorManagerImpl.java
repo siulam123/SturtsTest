@@ -24,6 +24,10 @@ public class AdministratorManagerImpl implements AdministratorManager{
     public void setDao(AdministratorDaoImpl dao) {
         this.dao = dao;
     }
+    
+    public Administrator findObject(Administrator admin) throws HibernateException{
+    	return dao.findAdministrator(admin);
+    }
 
     public List<Administrator> getAdministrators() throws HibernateException {  
         return dao.getAdministrators();

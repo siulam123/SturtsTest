@@ -13,14 +13,17 @@
 
 		<action name="login" class="action.UserLoginAction">
 			<result name="success">/welcome.jsp</result>
-			<result name="teasuccess">/teacher/teacher.jsp</result>
+			<result name="teasuccess">/teacher.jsp</result>
 		</action>
-
+		<action name="loginOut" class="action.UserLoginAction" method="loginOut">
+			<result name="success">/index.jsp</result>
+		</action>
+		
 		<action name="register" class="action.UserRegisterAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-
-		<!--item -->
+		
+		<!--item-->
 		<action name="getAllItems" class="action.ItemAction" method="getAllItems">
 			<result type="json" name="result">
 				<param name="data">data</param>
@@ -34,26 +37,26 @@
 				<param name="data">data</param>
 			</result>
 		</action>
-
-		<!--grade -->
+		
+		<!--grade-->
 		<action name="getGrade" class="action.GradeAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-
-		<!--Exampaper -->
+		
+		<!--Exampaper-->
 		<action name="setExampaper" class="action.TeaExampaperAction">
 			<result name="success">/welcome.jsp</result>
 		</action>
-
-		<!--Exam -->
-		<action name="setExam" class="action.TeaExamAction" method="addExam">
-			<result name="success">/welcome.jsp</result>
+		
+		<!--Exam/Teacher-->
+		<action name="addExam" class="action.TeaExamAction" method="addExam">
+			<result name="success">/teacher/manageexamitemlist.jsp</result>
 		</action>
 		<action name="RandomExam" class="action.TeaExamAction" method="RandomExam">
 			<result name="success">/welcome.jsp</result>
 		</action>
 		<action name="confirmExam" class="action.TeaExamAction" method="confirmExam">
-			<result name="success">/welcome.jsp</result>
+			<result name="success">/teacher/manageexamitemalter.jsp</result>
 		</action>
 		<action name="getAllExam" class="action.TeaExamAction" method="getAllExam">
 			<result type="json" name="result">
@@ -63,6 +66,14 @@
 		<action name="itemlist" class="action.TeaExamAction" method="itemlist">
 			<result name="success">/teacher/manageexamitemlist.jsp</result>
 		</action>
+		<!--Exam/Student-->
+		<action name="ExamById" class="action.StuExamAction" method="ExamById">
+			<result name="success">/success.jsp</result>
+		</action>
+		<action name="test" class="action.StuExamAction" method="test">
+			<result name="success">/success.jsp</result>
+		</action>
+
 
 		<!-- chj -->
 		<action name="SubmitAction" class="action.SubmitCodeAction">
@@ -79,6 +90,12 @@
 				<param name="IDentifier">IDentifier</param>
 			</result>
 			<!-- <result name="success">/judgehome.jsp</result> -->
+		</action>
+		
+		<action name="GetProblem" class="action.ProblemAction">
+			<result type="json" name="success">
+				<param name="result">result</param>
+			</result>
 		</action>
 	</package>
 

@@ -33,32 +33,34 @@ $(document).ready(function () {
 	});
 });
 
-//	$().ready(function() {
-//		$("#searchtable").show();
-//		$("#table1").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "../images/up.png", descImage: "../images/down.png"});
-//	});
+	$().ready(function() {
+		$("#searchtable").show();
+		$("#table1").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false, ascImage: "../images/up.png", descImage: "../images/down.png"});
+	});
+	
+	function add(){
+		window.parent.location.href='manageexamadd.jsp';
+	}
 </script>
 <link href="../css/lanrenzhijia.css" rel="stylesheet" type="text/css" />
 <link href="../css/advancedtable.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="topbanner">
-  <div class="content">管理试卷</div>
-</div>
-<div id="wrapper">
-  <div id="maincontent">
-    <div class="half left">
+<div id="maincontent">
       <table width="100%" class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none;">
         <tr>
-        	输入试卷编号或相关题目关键字：
-          <td width="27%">
+          <td><h5>输入试卷编号或相关题目关键字：</h5></td>
+          <td>
          	 <input name="search" type="text" id="search" style="display:none;" />
           </td>
-          <td width="73%">
+          <td >
        		<div id="loader" style="display:none;">
          		<img src="../images/loader.gif" alt="Laoder" />
         	</div>
           </td>
+		  <td>
+        	<a href="javascript:volid(0);" onclick="add()" style="text-decoration:none">增加试卷 </a>
+		  </td>          
         </tr>
       </table>
       <table width="100%" id="table1" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
@@ -74,18 +76,8 @@ $(document).ready(function () {
         </tbody>
       </table>
    </div>
-    <div class="half right">
-      <h2>吉珠老师</h2>
-      <ul class="overview">
-		<li><a href="manageexamadd.jsp" style="text-decoration:none">增加试卷 </a></li>
-      </ul>
-      <p><img src="../images/1.jpg"   width="260" height="250"/></p>
-      <p>&nbsp;</p>
-    </div>
     <div class="spacer">
       <!-- SPACER -->
     </div>
-  </div>
-</div>
 </body>
 </html>

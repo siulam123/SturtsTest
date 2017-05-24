@@ -91,23 +91,17 @@ function load(){
 <link href="../css/advancedtable.css" rel="stylesheet" type="text/css" />
 </head>
 <body onload="load()">
-<div id="topbanner">
-  <div class="content">管理题库</div>
-</div>
-<div id="wrapper">
   <div id="maincontent">
       <table width="100%" class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0"  style="display:none;">
         <tr>
-        	<h4>输入题号或相关题目关键字：</h4>
-          <td width="27%">
-         	 <input name="search" type="text" id="search" style="display:none;" />
-          </td>
-          <td width="48%">
+          <td><h4>输入题号或相关题目关键字：</h4></td>
+          <td><input name="search" type="text" id="search" style="display:none;" /></td>
+          <td>
        		<div id="loader" style="display:none;">
          		<img src="../images/loader.gif" alt="Laoder" />
         	</div>
           </td>
-          <td width="25%">
+          <td>
           <a href="manageitemadd.jsp" style="text-decoration:none;" >增加题目</a></td>
         </tr>
       </table>
@@ -124,6 +118,5 @@ function load(){
            </tbody>
       </table>
     </div>
-  </div>
 </body>
 </html>

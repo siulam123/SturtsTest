@@ -13,7 +13,7 @@ public interface ExamManager {
 	//上传试卷
 	public boolean Upload(Exam exam) throws HibernateException;
 	//根据id获取试卷内容
-	public Map<String,Object> getExamById(String examId) throws HibernateException;
+	public Exam getExamById(String examId) throws HibernateException;
 	//将试卷题目和试卷信息存入数据库
 	public boolean setExam(Exam exam) throws HibernateException;
 	//随机生成试卷

@@ -31,13 +31,13 @@
 											 "<input name='select' type='checkbox' value='select '/>"+
 	    									 "</div>";
 	    				var blankfilingstr = "" + "<div class='quanxuan'>"+
-						 "<input name='all' id='blankfilingall' type='checkbox' value='blankfiling'/>"+"全选"+
+						 "<input name='all' id='blankfilingall' type='checkbox' onclick='onClickHander(this)' value='blankfiling'/>"+"全选"+
 						 "</div>"+ "<div class='blankfilingCss'>";
 		            	var choicestr = "" + "<div class='quanxuan'>"+
-						 "<input name='all' id='choiceall' type='checkbox' value='choice'/>"+"全选"+
+						 "<input name='all' id='choiceall' type='checkbox' onclick='onClickHander(this)' value='choice'/>"+"全选"+
 						 "</div>" + "<div class='choiceCss'>";
 		            	var judgestr = "" + "<div class='quanxuan'>"+
-						 "<input name='all' id='judgeall' type='checkbox' value='judge'/>"+"全选"+
+						 "<input name='all' id='judgeall' type='checkbox' onclick='onClickHander(this)' value='judge'/>"+"全选"+
 						 "</div>" + "<div class='judgeCss'>";
 		            	$.each(json, function(index,value){
 		            		
@@ -45,7 +45,7 @@
 		            		{
 		            			blankfilingstr +="<br>"+ blankfiling+"."+json[index].content+"<br>"+
 		            						"答案："+json[index].answer+"<br>"+
-				            				"<input name='select' type='checkbox' value='"+json[index].itemId+"'/>"
+				            				"<input class='bf' name='select' type='checkbox' value='"+json[index].itemId+"'/>"
 				            	blankfiling++;
 				            				
 		            		}
@@ -59,7 +59,7 @@
 		                					 "<input name='radio' type='radio' value='C' />"+strs[3]+
 		                					 "<input name='radio' type='radio' value='D' />"+strs[4]+"<br>"+
 		                					 "答案："+json[index].answer+"<br>"+
-				                			 "<input name='select' type='checkbox' value='"+json[index].itemId+"'/>"+
+				                			 "<input class='cho' name='select' type='checkbox' value='"+json[index].itemId+"'/>"+
 				                			 "</div><br>"
 				                choice++;
 		            		}
@@ -68,7 +68,7 @@
 		                		"<input name='X' type='radio' value='Y' />Y"+
 		                		"<input name='X' type='radio' value='N' />N<br>"+
 		                		"答案："+json[index].answer+"<br>"+
-		                		"<input name='select' type='checkbox' value='"+json[index].itemId+"'/>"+"<br>"
+		                		"<input class='jd' name='select' type='checkbox' value='"+json[index].itemId+"'/>"+"<br>"
 		                		judge++;
 		                    }
 		            		
@@ -103,13 +103,14 @@
 		    	alert("请求数据出错!");  
 		    },
 		    success: function(){
-		    	window.location.href("manageexamitemlist.jsp");
+		    	//window.location.href("manageexamitemlist.jsp");
+		    	self.location = "manageexamitemlist.jsp";
 		    }
 	    });
 	}	        
 </script>
 
-<script src="js/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
 <script>
 $(function(){
 	$(".showdiv").click(function(){
@@ -128,6 +129,43 @@ $(function(){
 		$("#zhezhao").css("display","none");
 	});
 });
+
+
+function onClickHander(obj){
+	if(obj.checked){
+    	if(obj.value=="blankfiling"){
+    		$("input[class='bf']").each(function(i,dom){
+    			dom.checked=true;
+    		});
+    	}
+    	else if(obj.value=="choice"){
+    		$("input[class='cho']").each(function(i,dom){
+    			dom.checked=true;
+    		});
+    	}
+    	else{
+    		$("input[class='jd']").each(function(i,dom){
+    			dom.checked=true;
+    		});
+    	}
+    }else{
+    	if(obj.value=="blankfiling"){
+    		$("input[class='bf']").each(function(i,dom){
+    			dom.checked=false;
+    		});
+    	}
+    	else if(obj.value=="choice"){
+    		$("input[class='cho']").each(function(i,dom){
+    			dom.checked=false;
+    		});
+    	}
+    	else{
+    		$("input[class='jd']").each(function(i,dom){
+    			dom.checked=false;
+    		});
+    	}
+    }
+}
 </script>
 <link href="../css/floatingwindow.css" rel="stylesheet" type="text/css" />
 
@@ -139,7 +177,7 @@ $(function(){
 			<button id="left" type="button">筛选</button><!-- 动态标签js -->
 		</div>
         <div id="title-right">
-           	<a href="../indext.jsp" >退出</a>   
+           	<a href="../teacher.jsp" >首页</a>   
         </div>
 	</div>
 	 <div id="content">

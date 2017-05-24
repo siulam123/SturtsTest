@@ -1,5 +1,6 @@
 package pojo;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,14 +10,6 @@ public class Exam implements java.io.Serializable{
 	private String examName;
 	private String examTime;
 	
-	public String getNowTime(){
-		SimpleDateFormat sdf = 
-				new SimpleDateFormat("yyyy-MM-dd");
-		String timestamp = null;
-		timestamp = sdf.format(new Date());
-		
-		return timestamp;
-	}
 	public int getExamId() {
 		return examId;
 	}

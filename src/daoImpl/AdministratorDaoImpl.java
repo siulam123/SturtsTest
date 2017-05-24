@@ -37,8 +37,7 @@ public class AdministratorDaoImpl extends HibernateDaoSupport implements Adminis
     }
 
 	public void updateObject(Administrator admin) throws HibernateException {
-		getHibernateTemplate().update(admin);
-		
+		getHibernateTemplate().update(admin);	
 	}
 	
 }

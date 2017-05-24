@@ -62,24 +62,27 @@ public class ExamManagerImpl implements ExamManager{
     	return dao.getExampaperIdByExamId(exam);//获取刚存入自增生成的paperId
     }
     
-    public void setExampaper(String items,String paperId){
-    	//调用exampapermanager将题目存入数据库
-		exampaperManager.setExampaper(items, paperId);
-    }
-    
-    public Map<String,Object> getExamById(String examId) throws HibernateException {
-    	Map<String,Object> result = new HashMap<String,Object>();
+    public Exam getExamById(String examId) throws HibernateException {
+    	Exam exam;
     	//根据id获取exam
-    	Exam exam = dao.getExamById(examId);
+    	List<Exam> examlist = dao.getExamById(Integer.parseInt(examId));
+    	
+    	if(examlist.size()==1){
+    		exam = examlist.get(0);
+    	}
+    	else{//若返回的试卷不止一张，则随机返回其中一张试卷
+    		exam = examlist.get(DataTool.getRandom((examlist.size()-1)));
+    	}
+    	
     	//根据list<exampaper>获取list<item>
-    	List<Object> items = exampaperManager.getItemsByPapers(//根据exampaperId获取list<exampaper>
-    			exampaperManager.getExampaperById(exam.getExamPaperId()));
+//    	List<Object> items = exampaperManager.getItemsByPapers(//根据exampaperId获取list<exampaper>
+//    			exampaperManager.getExampaperById(exam.getExamPaperId()));
+//    	
+//    	//将获取的数据存入map
+//    	result.put("exam", exam);
+//    	result.put("items", items);
     	
-    	//将获取的数据存入map
-    	result.put("exam", exam);
-    	result.put("items", items);
-    	
-        return result;
+        return exam;
     }
     
     //随机生成试卷
@@ -108,6 +111,9 @@ public class ExamManagerImpl implements ExamManager{
     	List<Object> result = new ArrayList<Object>();
     	//根据题目数量循环几遍，从目标list随机挑选题目
     	for(int i = 0,j; i < Mun; i++){
+    		if(i>=map.size()){//防止数组越界
+    			break;
+    		}
     		//生成list长度内的随机数
     		j = DataTool.getRandom(map.size()-i);
     		//添加到结果list中
@@ -153,7 +159,6 @@ public class ExamManagerImpl implements ExamManager{
     	map.put("blankfiling", blankfilinglist);
     	return map;
     }
-    
 
 	@Override
 	public boolean reflect(Exam exam, Double amount) throws HibernateException {

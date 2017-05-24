@@ -38,12 +38,13 @@ public class ExamDaoImpl extends HibernateDaoSupport implements ExamDao{
     		return null;
     }
     
-    public Exam getExamById(String examId) throws HibernateException{
-    	List<?> list =getHibernateTemplate().find("FROM Exam U WHERE U.examId = ?0",examId);
-    	if(list.size()!=0)
-    		return (Exam) list.get(0);
-    	else
-    		return null;
+    public List<Exam> getExamById(Integer examId) throws HibernateException{
+    	List<Exam> list =(List<Exam>)getHibernateTemplate().find("FROM Exam U WHERE U.examId = ?0",examId);
+    	
+    	if(list.size()!=0){
+    		return list;
+    	}
+    	else return null;
     }
 
 	public void updateObject(Exam exam) throws HibernateException {

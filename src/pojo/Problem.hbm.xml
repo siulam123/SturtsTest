@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-mapping>
+	<class name="pojo.Problem" table="problem" dynamic-update="true" dynamic-insert="true" >
+		<id name="problem_id">
+			<generator class="identity" />
+		</id>
+		<property name="title" />
+		<property name="description" />
+		<property name="input" />
+		<property name="output" />
+		<property name="sample_input" />
+		<property name="sample_output" />
+		<property name="spj" />
+		<property name="hint" />
+		<property name="source" />
+		<property name="in_date" />
+		<property name="time_limit" />
+		<property name="memory_limit" />
+		<property name="defunct" />
+		<property name="accepted" />
+		<property name="submit" />
+		<property name="solved" />
+	</class>
+</hibernate-mapping>

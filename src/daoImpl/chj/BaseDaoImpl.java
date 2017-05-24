@@ -2,6 +2,7 @@ package daoImpl.chj;
 
 
 import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
 
@@ -14,14 +15,20 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import dao.chj.BaseDao;
+import pojo.PageModel;
 
 @Repository
 @SuppressWarnings("all")
 public class BaseDaoImpl<T> implements BaseDao<T>{
+
+	// Fields
+	private Class<T> clazz; // Class type
 	private SessionFactory judgeSessionFactory;
 
 	public BaseDaoImpl() {
         System.out.println("BaseDao IN");
+        ParameterizedType type = (ParameterizedType)this.getClass().getGenericSuperclass();
+		this.clazz = (Class<T>)type.getActualTypeArguments()[0];
     }
 	
 	public SessionFactory getJudgeSessionFactory() {
@@ -120,6 +127,30 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
 	}
 
+
+	@Override
+	public int totalCount() {
+		int count = 0;
+		String hql = "SELECT count(t) FROM " + clazz.getSimpleName() + " t";
+		Long temp = (Long)this.getCurrentSession().createQuery(hql).uniqueResult();
+		if(temp != null){
+			count = temp.intValue();
+		}
+
+		return count;
+	}
+	
+	@Override
+	public PageModel<T> findByPager(int pageNo, int pageSize) {
+		PageModel<T> pm = new PageModel<T>(pageNo, pageSize);
+		String hql = "select t from " + clazz.getSimpleName() + " t";
+		System.out.println(this.getCurrentSession().createQuery(hql).setFirstResult(pageNo).setMaxResults(pageSize).list());
+		pm.setDatas(this.getCurrentSession().createQuery(hql).setFirstResult(pageNo).setMaxResults(pageSize).list());
+		pm.setRecordCount(totalCount());
+
+		return pm;
+	}
+	
 	@Override
 	public Long count(String hql) {
 		Query q = this.getCurrentSession().createQuery(hql);
@@ -137,11 +168,18 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return (Long) q.uniqueResult();
 	}
 
+
+	
 	@Override
 	public int executeHql(String hql) {
 		Query q = this.getCurrentSession().createQuery(hql);
 		return q.executeUpdate();
 	}
+
+
+
+
+
 
 
 

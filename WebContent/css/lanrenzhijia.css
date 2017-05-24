@@ -25,7 +25,7 @@ img {
 body {
 	font-size: 11px;
 	font-family:Verdana;
-	background:#EFEFEF none repeat scroll 0 0;
+	background: none repeat scroll 0 0;
 	text-align: center;
 	line-height:1.5;
 }
@@ -73,9 +73,9 @@ a:hover {
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-left: 0px;
-	background-color: #F2F2F2;
+
 	border: 1px solid #CCC;
-	color: #666;
+
 }
 #wrapper {
 	width: 700px;
@@ -86,14 +86,12 @@ a:hover {
 	height: 130px;
 }
 #maincontent {
-	border:1px solid #BEBEBE;
 	background-color: #FFF;
 	padding: 20px;
 }
 #header h1 {
 	font-size:24px;
 	margin:0 0 0 5px;
-	color:#616263;
 }
 #header p {
 	margin:0px 0px 10px 0px;
@@ -108,7 +106,7 @@ a:hover {
 	padding:0px;
 }
 #header h1 a {
-	color:#616263;
+
 	text-decoration:none;
 }
 #header h1 a:hover {
@@ -153,7 +151,7 @@ input, select, textarea {
 }
 .left {
 	float: left;
-	width:650px;
+	width:1000px;
 }
 .right {
 	float: right;
@@ -279,7 +277,7 @@ input, select, textarea {
 	font-size: 12px;
 }
 .half {
-	width: 49%;
+	width:50%;
 }
 .code {
 	padding-left: 10px;

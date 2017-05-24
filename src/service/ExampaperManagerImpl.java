@@ -3,11 +3,13 @@ package service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
 import dao.ExampaperDao;
+import pojo.ExamParamters;
 import pojo.Exampaper;
 import service.ExampaperManager;
 import service.ItemManager;
@@ -55,20 +57,17 @@ public class ExampaperManagerImpl implements ExampaperManager{
     	return list;
     }
     
-    public boolean setExampaper(String items,String id) throws HibernateException{
-    	String[] strs = splitStr(items);
-		
-    	for(int i = 0; i < strs.length; i++){
-    		if(strs[i]!=null){
-    			Exampaper exampaper = new Exampaper();
-    			exampaper.setItemId(Integer.parseInt(strs[i]));
-    			exampaper.setExampaperId(id);
-    	    	dao.saveObject(exampaper);
-    		}
-    	}
+    public boolean setExampaper(int itemId,String paperid) throws HibernateException{
+    	Exampaper exampaper = new Exampaper();
+    	exampaper.setExampaperId(paperid);
+    	exampaper.setItemId(itemId);
+
+    	dao.saveObject(exampaper);
     	
     	return true;
     }
+    
+
     
     public List<Object> getItemlist(String items){
     	String[] strs = splitStr(items);

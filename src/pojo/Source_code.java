@@ -9,8 +9,8 @@ import javax.persistence.Table;
  *
  */
 public class Source_code {
-	public Integer solution_id;
-	public String source;
+	private Integer solution_id;
+	private String source;
 	public Integer getSolution_id() {
 		return solution_id;
 	}

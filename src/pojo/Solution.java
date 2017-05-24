@@ -11,23 +11,23 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicInsert;
 
 public class Solution {
-	public Integer solution_id;
-	public Integer problem_id;
-	public String user_id;
-	public Integer time;
-	public Integer memory;
-	public String in_date;
-	public Integer result;
-	public Integer language;
-	public String ip;
-	public Integer contest_id;
-	public Integer valid;
-	public Integer num;
-	public Integer code_length;
-	public Date judgetime;
-	public Double pass_rate;
-	public Integer int_error;
-	public String judger;
+	private Integer solution_id;
+	private Integer problem_id;
+	private String user_id;
+	private Integer time;
+	private Integer memory;
+	private String in_date;
+	private Integer result;
+	private Integer language;
+	private String ip;
+	private Integer contest_id;
+	private Integer valid;
+	private Integer num;
+	private Integer code_length;
+	private Date judgetime;
+	private Double pass_rate;
+	private Integer int_error;
+	private String judger;
 	public Integer getSolution_id() {
 		return solution_id;
 	}

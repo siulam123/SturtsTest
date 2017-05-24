@@ -2,6 +2,7 @@ package action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -11,15 +12,17 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.Action;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import pojo.Exam;
 import pojo.ExamParamters;
+import pojo.Item;
 import service.ExamManager;
 import service.ExampaperManager;
 import service.ExampaperManagerImpl;
 import tool.DataTool;
 
 
-public class TeaExamAction implements Action, SessionAware   {
+public class TeaExamAction implements Action, SessionAware{
 	private String contentType = "text/html;charset=utf-8";
 	
 	private Map<String,Object> session;
@@ -58,19 +61,43 @@ public class TeaExamAction implements Action, SessionAware   {
 			int i = (int) session.get("addExam");
 			i++;
 		}
+		int id = DataTool.getRandom(999999);
+		JSONArray json= (JSONArray)session.get("RandomExam");
 		
-		exam.setExamId(123);
-		exam.setExamName("哈哈哈");
-		exam.setExamTime(exam.getNowTime());
-		exam.setExamPaperId("123"+strs[(int)session.get("addExam")]);
+		Map map = DataTool.getMap(json);
 		
-		examManager.setExam(exam);
+		List bf = (List)map.get("blankfiling");
+		List cho = (List)map.get("choice");
+		List jd = (List)map.get("judge");
+		JSONObject e = (JSONObject)map.get("examParamters");
+		ExamParamters exa = (ExamParamters) JSONObject.toBean(e, ExamParamters.class);
+		
+		exam.setExamId(id);
+		exam.setExamName(exa.getTopic());
+		exam.setExamTime(DataTool.getNowTime());
+		exam.setExamPaperId(id+strs[(int)session.get("addExam")]);
+		
+		if(examManager.setExam(exam)){
+			setExampaper(bf,exam.getExamPaperId());
+			setExampaper(cho,exam.getExamPaperId());
+			setExampaper(jd,exam.getExamPaperId());
+		}
 
 		//题id串，exampaperId
-		exampaperManager.setExampaper("1->2->3", strs[(int)session.get("addExam")]);
+		//exampaperManager.setExampaper(map, exam.getExamPaperId());
 		
 		return "success";
 	}
+	
+	private boolean setExampaper(List items,String id){
+		Iterator item = items.iterator();
+    	while(item.hasNext()){
+    		Item obj = (Item) JSONObject.toBean((JSONObject) item.next(),Item.class);
+    		exampaperManager.setExampaper(obj.getItemId(),id);
+    	}
+		return true;
+	}
+	
 	
 	//manageexamadd上传选择题目到manageexamitemlist调用函数
 	public String itemlist(){
@@ -89,7 +116,6 @@ public class TeaExamAction implements Action, SessionAware   {
 		ExamParamters examParamters = new ExamParamters();
 		examParamters.setBlankfilingMun(5);
 		
-		
 		Map<String,Object> items = new HashMap<String,Object>();
 		String[] str = {"11","2","23","13","12","55","40","77","8"};
 		items.put("choice", null);
@@ -102,6 +128,7 @@ public class TeaExamAction implements Action, SessionAware   {
 	}
 	
   	public String confirmExam(){
+  		//获取数据并存入参数类
 		String[] number = getNumber();
 		String[] score = getScore();
 		ExamParamters examParamters = new ExamParamters();
@@ -114,13 +141,22 @@ public class TeaExamAction implements Action, SessionAware   {
 		examParamters.setBlankfilingPlace(Integer.parseInt(score[2]));
 		examParamters.setTopic(getTopic());
 		
+		//从session中获取题目列表
 		List items = DataTool.getJsonItem((JSONArray)session.get("items"));
+		//将list内容按类型分类并存到map中
 		Map<String,Object> map = examManager.chooie(items);
+		//获取随机生成的试卷题目
+		Map<String,Object> mapResult = examManager.RandomExam(examParamters, map);
+		mapResult.put("examParamters", examParamters);
 		
-		examManager.RandomExam(examParamters, map);
-		
-		System.out.println(number);
-		System.out.println(score);
+		//将生成的随机题目清单保存到session中
+		if(session.get("RandomExam")==null){
+			session.put("RandomExam", DataTool.getJson(mapResult));
+		}
+		else{
+			session.remove("RandomExam");
+			session.put("RandomExam", DataTool.getJson(mapResult));
+		}
 		
 		return "success";
 	}

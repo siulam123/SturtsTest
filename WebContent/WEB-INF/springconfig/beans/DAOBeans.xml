@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+             http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd    
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd  
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd  
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<!-- DAO类注册 -->
+    <bean id="studentDaoImpl" class="daoImpl.StudentDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="teacherDaoImpl" class="daoImpl.TeacherDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="administratorDaoImpl" class="daoImpl.AdministratorDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="itemDaoImpl" class="daoImpl.ItemDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="gradeDaoImpl" class="daoImpl.GradeDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="exampaperDaoImpl" class="daoImpl.ExampaperDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="examDaoImpl" class="daoImpl.ExamDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="answerExamDaoImpl" class="daoImpl.AnswerExamDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+    <bean id="answerDaoImpl" class="daoImpl.AnswerDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+		<!-- chjDao -->
+	<bean id="solutionDaoImpl" class="daoImpl.chj.SolutionDaoImpl">
+		<property name="judgeSessionFactory">
+			<ref bean="judgeSessionFactory" />
+		</property>
+	</bean>
+	<bean id="source_codeDaoImpl" class="daoImpl.chj.Source_codeDaoImpl">
+		<property name="judgeSessionFactory">
+			<ref bean="judgeSessionFactory" />
+		</property>
+	</bean>
+	<bean id="problemDaoImpl" class="daoImpl.chj.ProblemDaoImpl">
+		<property name="judgeSessionFactory">
+			<ref bean="judgeSessionFactory" />
+		</property>
+	</bean>
+</beans>

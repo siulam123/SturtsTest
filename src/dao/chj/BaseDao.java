@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import pojo.PageModel;
+
 /**
  * @author itronys
  */
@@ -31,6 +33,10 @@ public interface BaseDao<T> {
 
 	public List<T> find(String hql, Map<String, Object> params, int page, int rows);
 
+	public int totalCount();
+	
+	public PageModel<T> findByPager(int pageNo, int pageSize);
+	
 	public Long count(String hql);
 
 	public Long count(String hql, Map<String, Object> params);
@@ -38,5 +44,6 @@ public interface BaseDao<T> {
 	public T get(Class<T> c, Serializable id);
 
 	public int executeHql(String hql);
+	
 
 }

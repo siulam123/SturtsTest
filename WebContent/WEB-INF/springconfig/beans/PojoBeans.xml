@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+             http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd    
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd  
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd  
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- model类注册 -->
+	 <bean id="student" class="pojo.Student"></bean>
+    <bean id="teacher" class="pojo.Teacher"></bean>
+    <bean id="administrator" class="pojo.Administrator"></bean>
+    <bean id="item" class="pojo.Item"></bean>
+    <bean id="grade" class="pojo.Grade"></bean>
+    <bean id="exampaper" class="pojo.Exampaper"></bean>
+    <bean id="exam" class="pojo.Exam"></bean>
+    <bean id="examParamters" class="pojo.ExamParamters"></bean>
+    <bean id="answerExam" class="pojo.AnswerExam"></bean>
+    <bean id="answer]" class="pojo.Answer"></bean>
+   <!--  chj -->
+	<bean id="solution" class="pojo.Solution"></bean>
+	<bean id="source_code" class="pojo.Source_code"></bean>
+	<bean id="problem" class="pojo.Problem"></bean>
+
+</beans>

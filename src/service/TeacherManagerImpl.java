@@ -1,7 +1,9 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
+import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import pojo.Teacher;
 public class TeacherManagerImpl implements TeacherManager{
     private TeacherDaoImpl dao;  
 
-    public TeacherManagerImpl(){
+	public TeacherManagerImpl(){
         dao = new TeacherDaoImpl();
         System.out.println("TeacherManager IN");
     }
@@ -34,6 +36,10 @@ public class TeacherManagerImpl implements TeacherManager{
     	return true;
     }
     
+    public Teacher findObject(Teacher teacher) throws HibernateException{
+    	return dao.findTeacher(teacher);
+    }
+    
     public String login(Teacher teacher) throws HibernateException{
     	Teacher teacherSql = dao.findTeacher(teacher);
     	if(teacherSql!=null)
@@ -44,7 +50,7 @@ public class TeacherManagerImpl implements TeacherManager{
     		else
     			return "error";
     	else
-    		return "null";
+    		return "none";
     }
 
 	@Override
@@ -58,5 +64,4 @@ public class TeacherManagerImpl implements TeacherManager{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
 }

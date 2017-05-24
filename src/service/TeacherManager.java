@@ -22,6 +22,7 @@ public interface TeacherManager {
 	public String login(Teacher teacher) throws HibernateException;
 	public boolean register(Teacher teacher) throws HibernateException;
 	public List<Teacher> getTeachers() throws HibernateException;
+	public Teacher findObject(Teacher teacher) throws HibernateException;
 	public boolean recharge(Teacher teacher,Double amount) throws HibernateException;
 	public boolean reflect(Teacher teacher,Double amount) throws HibernateException;
 }

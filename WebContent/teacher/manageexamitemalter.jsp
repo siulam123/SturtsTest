@@ -6,10 +6,70 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>修改试卷</title>
 <link rel="stylesheet" href="../css/demo.css" type="text/css" media="all" />
-<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="../js/pagescroller.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	var json = ${RandomExam};
+	
+	var blankfiling = eval(json[0].blankfiling);
+	var judge = eval(json[0].judge);
+	var choice = eval(json[0].choice);
+	var examParamters = eval(json[0].examParamters);
+	
+	var blankfilingStr ="";
+	var judgeStr ="";
+	var choiceStr ="";
+	
+	$.each(blankfiling, function(index,value){
+			blankfilingStr += (index+1) +"."+blankfiling[index].content+"<br>"+
+			"答案："+blankfiling[index].answer+"<br>"
+		
+	});
+	$.each(judge, function(index,value){
+		judgeStr += (index+1) +"."+judge[index].content+"<br>"+
+		"<input name='X' type='radio' value='Y' disabled/>"+
+		"<input name='X' type='radio' value='N' disabled/>"+
+		"答案："+judge[index].answer+"<br>"
+	});
+	$.each(choice, function(index,value){
+		str=choice[index].content; //这是一字符串 
+		var strs= new Array(); 	 //定义一数组 
+		strs=str.split("->");    //字符分割 
+		choiceStr += (index+1) +"."+strs[0]+"<br>"+
+		"<input name='radio' type='radio' value='A' disabled />"+strs[1]+
+		"<input name='radio' type='radio' value='B' disabled/>"+strs[2]+"<br>"+
+		"<input name='radio' type='radio' value='C' disabled/>"+strs[3]+
+		"<input name='radio' type='radio' value='D' disabled/>"+strs[4]+"<br>"+
+		"答案："+choice[index].answer+"<br>"
+	});
+	
+/*	var navLabel = new Array();
+	var nav = 0;
+	if(choiceStr==""){}
+	else{
+		navLabel[nav] = "选择题";
+		nav++;
+		$("#choice").html(choiceStr);
+	}
+	if(blankfilingStr==""){}
+	else{
+		navLabel[nav] = "填空题";
+		nav++;
+		$("#blankfiling").html(blankfilingStr);	
+	}
+	if(judgeStr==""){}
+	else{
+		navLabel[nav] = "判断题";
+		nav++;
+		$("#blankfiling").html(judgeStr);	
+	}
+*/
+	$("#choice").html(choiceStr);
+	$("#blankfiling").html(judgeStr);
+	$("#blankfiling").html(blankfilingStr);
+	$("#topic").html(examParamters.topic);
+	
 	var navLabel = new Array('选择题', '填空题', '判断题', '编程题');
 	$('#main').pageScroller({ navigation: navLabel });
 	$('.next').click(function(e){
@@ -20,7 +80,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		pageScroller.prev();
 	});
-});	
+});
 </script>
 </head>
 <body>
@@ -31,76 +91,34 @@ $(document).ready(function(){
 <div id="wrapper">
 	<div id="main">
 		<div id="title">
-			<h1>试卷名2017 c++期末考试（A卷）</h1><br>
-			<h3>满分：100分  时间：150分钟 日期:2017.4.10</h3>
+			<h1 id="topic"></h1><br>
+			<h3>满分：100分   时间：150分钟  日期:2017.4.10</h3>
 		</div>
 		<div class="type">
-			<h1>一：选择题</h1> <br>
-			<div class="choiceCss">
-				1、选择题题目<br>
-				<input name="radio" type="radio" value="A" disabled />A:A选项
-				<input name="radio" type="radio" value="B" disabled/>B:B选项<br>
-				<input name="radio" type="radio" value="C" disabled/>C:C选项
-				<input name="radio" type="radio" value="D" disabled/>D:D选项
-				<div class="answerCss">
-				答案：答案内容；
-				</div><br>
+			<h3>一：选择题</h3> <br>
+			<div class="choiceCss" id="choice">
+				
+			</div>	
+		</div>
+		<div class="type" >
+			<h3>二：填空题</h3><br>
+			<div class="blankfilingCss" id = "blankfiling">
+				
 			</div>
-			<div class="choiceCss">
-				1、选择题题目<br>
-				<input name="radio" type="radio" value="A" disabled />A:A选项
-				<input name="radio" type="radio" value="B" disabled/>B:B选项<br>
-				<input name="radio" type="radio" value="C" disabled/>C:C选项
-				<input name="radio" type="radio" value="D" disabled/>D:D选项
-				<div class="answerCss">
-					答案：答案内容；
-				</div><br>
-			</div>
-			<div class="choiceCss">
-				1、选择题题目<br>
-				<input name="radio" type="radio" value="A" disabled />A:A选项
-				<input name="radio" type="radio" value="B" disabled/>B:B选项<br>
-				<input name="radio" type="radio" value="C" disabled/>C:C选项
-				<input name="radio" type="radio" value="D" disabled/>D:D选项
-					<div class="answerCss">
-					答案：答案内容；
-				</div><br>						
-			</div>			
-			<p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-			<p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p><p>f</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
 		</div>
 		<div class="type">
-			<h1>二：填空题</h1><br>
-			<div class="blankfilingCss">
-				填空题题目<br>
-				答案：答案内容；<br>
-			</div>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-			<p>r</p><p>r</p><p>r</p><p>r</p><p>r</p><p>r</p><p>r</p><p>r</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-		</div>
-		<div class="type">
-			<h1>三：判断题</h1><br>
-				<div class="judgeCss">
-					判断题题目<br>
-					<input name="X" type="radio" value="C" disabled/>Y
-					<input name="X" type="radio" value="D" disabled/>N
-				<div class="answerCss">
-					答案：答案内容；
-				</div><br>
+			<h3>三：判断题</h3><br>
+				<div class="judgeCss" id="judge">
+					
 				</div>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
-			<p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p><p>e</p>
 		</div>
 		<div class="type"><h1>四：编程题</h1><br>
 		输入一个数组。。。。。。
 		</div>
+		<form action="addExam">
 		<input type="submit" value="完成" class="btn-style">
 		<input type="submit" value="取消" class="btn-style">
+		</form>
 	</div><!-- [END] #main -->
 	</div><!-- [END] #wrapper -->
 </body>

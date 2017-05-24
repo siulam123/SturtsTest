@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+             http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd    
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd  
+             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd  
+             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+             http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd  
+             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- action类注册 -->
+	<bean id="loginAction" class="action.UserLoginAction">
+		<property name="studentManager">
+			<ref bean="studentManager"></ref>
+		</property>
+		<property name="administratorManager">
+			<ref bean="administratorManager"></ref>
+		</property>
+		<property name="teacherManager">
+			<ref bean="teacherManager"></ref>
+		</property>
+	</bean>
+
+	<bean id="registerAction" class="action.UserRegisterAction">
+		<property name="studentManager">
+			<ref bean="studentManager"></ref>
+		</property>
+	</bean>
+
+	<bean id="itemAction" class="action.ItemAction">
+		<property name="itemManager">
+			<ref bean="itemManager"></ref>
+		</property>
+	</bean>
+
+	<bean id="teaExampaperAction" class="action.TeaExampaperAction">
+		<property name="exampaperManager">
+			<ref bean="exampaperManager"></ref>
+		</property>
+	</bean>
+
+	<bean id="gradeAction" class="action.GradeAction">
+		<property name="gradeManager">
+			<ref bean="gradeManager"></ref>
+		</property>
+	</bean>
+	<bean id="teaExamAction" class="action.TeaExamAction">
+		<property name="examManager">
+			<ref bean="examManager"></ref>
+		</property>
+		<property name="exampaperManager">
+			<ref bean="exampaperManager"></ref>
+		</property>
+	</bean>
+	<bean id="stuExamAction" class="action.StuExamAction">
+		<property name="examManager">
+			<ref bean="examManager"></ref>
+		</property>
+		<property name="exampaperManager">
+			<ref bean="exampaperManager"></ref>
+		</property>
+		<property name="itemManager">
+			<ref bean="itemManager"></ref>
+		</property>
+		<property name="answerExamManager">
+			<ref bean="answerExamManager"></ref>
+		</property>
+		<property name="answerManager">
+			<ref bean="answerManager"></ref>
+		</property>
+	</bean>
+	<!-- chj -->
+	<bean id="submitAction" class="action.SubmitCodeAction">
+		<property name="solutionManager">
+			<ref bean="solutionManager"></ref>
+		</property>
+		<property name="source_codeManager">
+			<ref bean="source_codeManager"></ref>
+		</property>
+	</bean>
+	<bean id="problemAction" class="action.ProblemAction">
+		<property name="problemManager">
+			<ref bean="problemManager"></ref>
+		</property>
+	</bean>
+</beans>

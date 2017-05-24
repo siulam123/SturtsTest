@@ -37,7 +37,6 @@ $(document).ready(function () {
 										blankfiling+"."+
 										json[index].content+"<br>"+
 										"答案："+json[index].answer+"<br>"+
-										"<input name='select' type='checkbox' value='select '/>"+
 									"</div>"
 						blankfiling++;
 		}
@@ -54,7 +53,6 @@ $(document).ready(function () {
 								strs[3]+
 								strs[4]+"<br>"+
 								"答案："+json[index].answer+"<br>"+
-								"<input name='select' type='checkbox' value='select'/><br>"+
 							"</div>"
 						choice++;
 		}
@@ -65,15 +63,31 @@ $(document).ready(function () {
 							"<input name='X' type='radio' value='Y' disabled/>Y"+
 							"<input name='X' type='radio' value='D' disabled/>N<br>"+
 							"答案："+json[index].answer+"<br>"+
-							"<input name='select' type='checkbox' value='select '/>"+
 						"</div>"
 						judge++;
         }
 	});//list遍历完结
-	$("#blankfiling").html(blankfilinghtml);
-	$("#choice").html(choicehtml);
-	$("#judge").html(judgehtml);
-
+	if(blankfilinghtml == ""){
+		$("#blankfilingCss").hide();
+	}
+	else{
+		$("#blankfiling").html(blankfilinghtml);
+	}
+	
+	if(choicehtml == ""){
+		$("#choiceCss").hide();
+	}
+	else{
+		$("#choice").html(choicehtml);
+	}
+	
+	if(judgehtml == ""){
+		$("#judgeCss").hide();
+	}
+	else{
+		$("#judge").html(judgehtml);
+	}
+	
 }); //@ sourceURL=pen.js
 </script>
 <script type="text/javascript"> 
@@ -123,19 +137,19 @@ $(function(){
 			<font>以下是您选好的题目：</font>
 		</div>
         <div id="title-right">
-           	<a href="teacher.jsp" >退出</a>   
+           	<a href="../teacher.jsp" >首页</a>   
         </div>
 	</div>
 	 <div id="content" ><!-- 框的样式 -->
-	 	<div class="contentCss" style="border: 1px solid #ffff00;" ><!-- 题的内容样式 -->
+	 	<div class="contentCss" id="choiceCss" style="border: 1px solid #ffff00;" ><!-- 题的内容样式 -->
 			<div id="choice" ><!-- 选择题样式 -->
 			</div>
 		</div>
-		<div class="contentCss" style="border: 1px solid #ffff00;">
+		<div class="contentCss" id="judgeCss" style="border: 1px solid #ffff00;">
 			<div id="judge" ><!--判断题的样式  -->			
 			</div>
 		</div>
-		<div class="contentCss" style="border: 1px solid #ffff00;">
+		<div class="contentCss" id="blankfilingCss" style="border: 1px solid #ffff00;">
 			<div id="blankfiling">
 			</div>
 		</div>

@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+body{
+	background-color:#e7e7e7;	
+}
+#head{
+	background-color:#783d3d;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	height:30px;
+}
+#main{
+	height:900px;
+  	width:1010px;
+ 	margin:5px auto;
+}
+#itemID{
+	width:24%;
+	height:250px;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    -khtml-opacity: 0.8;  
+    opacity: 0.8;  
+	float:left;
+	padding:10px;
+}
+#item{
+	width:70%;
+	height:260px;
+	float:right;	
+	padding:10px;	
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    -khtml-opacity: 0.8;  
+    opacity: 0.8; 	
+}
+#itemCtrl{
+	margin:5px 40px auto;
+}

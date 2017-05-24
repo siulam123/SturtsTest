@@ -1,4 +1,5 @@
 var xmlhttp;
+
 function toPost() {
 	var id = document.getElementById("id").value;
 	var language = document.getElementById("language").value;
@@ -74,8 +75,7 @@ function callback() {
 			divNode.innerHTML = "判断中。。。";
 			if (result.IDentifier > 0) {
 				divNode.innerHTML = result.result;
-				var request = XMLHttpRequest;
-				request.abort();
+				return flase;
 			}
 		} else {
 			 alert("出错了！！！");
