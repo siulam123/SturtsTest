@@ -13,6 +13,7 @@ import dao.ExamDao;
 import pojo.Exam;
 import pojo.ExamParamters;
 import pojo.Item;
+import pojo.Problem;
 import service.ExamManager;
 import service.ExampaperManager;
 import tool.DataTool;
@@ -92,6 +93,8 @@ public class ExamManagerImpl implements ExamManager{
     	Map<Integer,Object> choicelist = (Map<Integer,Object>)items.get("choice");
     	Map<Integer,Object> judgelist = (Map<Integer,Object>)items.get("judge");
     	Map<Integer,Object> blankfilinglist = (Map<Integer,Object>)items.get("blankfiling");
+		Map<Integer,Object> codelist = (Map<Integer,Object>)items.get("code");
+		
     	
     	//将随机生成的题目list添加到结果
     	if(choicelist != null){
@@ -102,6 +105,9 @@ public class ExamManagerImpl implements ExamManager{
     	}
     	if(blankfilinglist != null){
         	result.put("blankfiling", RandomItem(blankfilinglist,examParamters.getBlankfilingMun()));
+    	}
+    	if(codelist != null){
+        	result.put("code", RandomItem(codelist,examParamters.getCodeMun()));
     	}
     	return result;
     }
@@ -126,11 +132,17 @@ public class ExamManagerImpl implements ExamManager{
     	return result;
     }
     
-    public Map<String,Object> chooie(List<Object> items){
+    public Map<String,Object> chooie(List<Object> items,List<Problem> code){
     	Map<String,Object> map = new HashMap<String,Object>();
     	Map<Integer,Object> choicelist = new HashMap<Integer,Object>();int c=0;
     	Map<Integer,Object> judgelist = new HashMap<Integer,Object>();int j=0;
     	Map<Integer,Object> blankfilinglist = new HashMap<Integer,Object>();int b=0;
+    	Map<Integer,Problem> codelist = new HashMap<Integer,Problem>();int co=0;
+    	
+    	for(Problem p:code){
+    		codelist.put(co, p);
+    		co++;
+    	}
     	
     	Iterator index = items.iterator();
     	while(index.hasNext()){
@@ -153,10 +165,13 @@ public class ExamManagerImpl implements ExamManager{
 				break;
 			}
     	}
+
+    	
     	
     	map.put("choice", choicelist);
     	map.put("judge", judgelist);
     	map.put("blankfiling", blankfilinglist);
+    	map.put("code", codelist);
     	return map;
     }
 

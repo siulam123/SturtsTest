@@ -16,10 +16,12 @@ $(document).ready(function(){
 	var judge = eval(json[0].judge);
 	var choice = eval(json[0].choice);
 	var examParamters = eval(json[0].examParamters);
+	var code = eval(json[0].code);
 	
 	var blankfilingStr ="";
 	var judgeStr ="";
 	var choiceStr ="";
+	var codeStr="";
 	
 	$.each(blankfiling, function(index,value){
 			blankfilingStr += (index+1) +"."+blankfiling[index].content+"<br>"+
@@ -42,6 +44,14 @@ $(document).ready(function(){
 		"<input name='radio' type='radio' value='C' disabled/>"+strs[3]+
 		"<input name='radio' type='radio' value='D' disabled/>"+strs[4]+"<br>"+
 		"答案："+choice[index].answer+"<br>"
+	});
+	$.each(code, function(index,value){
+		codeStr+= (index+1) +"."+code[index].problem_id+"<br>"+
+		"标题："+code[index].title+"<br>"+
+		$(code[index].description).html()+"<br>"+
+		"输入："+code[index].input+"输出："+code[index].output+"<br>"+
+		"</div>"
+
 	});
 	
 /*	var navLabel = new Array();
@@ -66,8 +76,9 @@ $(document).ready(function(){
 	}
 */
 	$("#choice").html(choiceStr);
-	$("#blankfiling").html(judgeStr);
+	$("#judge").html(judgeStr);
 	$("#blankfiling").html(blankfilingStr);
+	$("#code").html(codeStr);
 	$("#topic").html(examParamters.topic);
 	
 	var navLabel = new Array('选择题', '填空题', '判断题', '编程题');
@@ -113,7 +124,9 @@ $(document).ready(function(){
 				</div>
 		</div>
 		<div class="type"><h1>四：编程题</h1><br>
-		输入一个数组。。。。。。
+			<div class="codeCss" id="code">
+					
+				</div>
 		</div>
 		<form action="addExam">
 		<input type="submit" value="完成" class="btn-style">

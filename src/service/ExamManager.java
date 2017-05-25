@@ -8,6 +8,7 @@ import org.hibernate.HibernateException;
 import pojo.Exam;
 import pojo.ExamParamters;
 import pojo.Item;
+import pojo.Problem;
 
 public interface ExamManager {
 	//上传试卷
@@ -21,7 +22,7 @@ public interface ExamManager {
 	//获取所有试卷
 	public List<Exam> getExams() throws HibernateException;
 	//数据转换，将list分类成map
-    public Map<String,Object> chooie(List<Object> items);
+    public Map<String,Object> chooie(List<Object> items,List<Problem> codes);
 	
 	public boolean recharge(Exam exampaper,Double amount) throws HibernateException;
 	public boolean reflect(Exam exampaper,Double amount) throws HibernateException;

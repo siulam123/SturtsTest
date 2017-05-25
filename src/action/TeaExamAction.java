@@ -147,14 +147,20 @@ public class TeaExamAction implements Action, SessionAware{
 		examParamters.setJudgePlace(Integer.parseInt(score[1]));
 		examParamters.setBlankfilingMun(Integer.parseInt(number[2]));
 		examParamters.setBlankfilingPlace(Integer.parseInt(score[2]));
+		examParamters.setCodeMun(Integer.parseInt(score[3]));
+		examParamters.setCodingPlace(Integer.parseInt(score[3]));
 		examParamters.setTopic(getTopic());
+
 		
 		//从session中获取题目列表
 		List items = DataTool.getJsonItem((JSONArray)session.get("items"));
+		//从session中获取编程题列表
+		List codes = DataTool.getJsonProblem((JSONArray)session.get("codes"));
 		//将list内容按类型分类并存到map中
-		Map<String,Object> map = examManager.chooie(items);
+		Map<String,Object> map = examManager.chooie(items,codes);
 		//获取随机生成的试卷题目
 		Map<String,Object> mapResult = examManager.RandomExam(examParamters, map);
+	
 		mapResult.put("examParamters", examParamters);
 		
 		//将生成的随机题目清单保存到session中

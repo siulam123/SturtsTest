@@ -11,6 +11,7 @@ import java.util.Random;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import pojo.Item;
+import pojo.Problem;
 
 public class DataTool {
 	//生成0-max的随机数，用于随机组卷
@@ -40,6 +41,9 @@ public class DataTool {
 	
 	public static List<Item> getJsonItem(JSONArray jsonArray){
 		return (List<Item>) JSONArray.toCollection(jsonArray, Item.class);
+	}
+	public static List<Problem> getJsonProblem(JSONArray jsonArray){
+		return (List<Problem>) JSONArray.toCollection(jsonArray, Problem.class);
 	}
 	
 	public static Map<String,Object> getMap(JSONArray jsonArray){

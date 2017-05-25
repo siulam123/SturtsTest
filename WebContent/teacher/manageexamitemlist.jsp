@@ -208,6 +208,11 @@ $(function(){
 			 	<td>数量：<input type="text" name="number"></td>
 			 	<td>总分值：<input type="text" name="score"></td>
 		 	</tr>
+		 	<tr>
+			 	<td style="background:#BEBEBE;">编程题</td>
+			 	<td>数量：<input type="text" name="number"></td>
+			 	<td>总分值：<input type="text" name="score"></td>
+		 	</tr>
 	 </table>		
 	</div>
 	<div align="center">

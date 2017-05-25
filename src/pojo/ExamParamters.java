@@ -6,9 +6,11 @@ public class ExamParamters {
 	private int choiceMun;
 	private int judgeMun;
 	private int blankfilingMun;
+	private int codeMun;
 	private int choicePlace;
 	private int judgePlace;
 	private int blankfilingPlace;
+	private int codingPlace;
 	private String topic;
 	
 	
@@ -54,6 +56,18 @@ public class ExamParamters {
 	}
 	public void setBlankfilingPlace(int blankfilingPlace) {
 		this.blankfilingPlace = blankfilingPlace;
+	}
+	public int getCodeMun() {
+		return codeMun;
+	}
+	public void setCodeMun(int codeMun) {
+		this.codeMun = codeMun;
+	}
+	public int getCodingPlace() {
+		return codingPlace;
+	}
+	public void setCodingPlace(int codingPlace) {
+		this.codingPlace = codingPlace;
 	}
 	
 	
