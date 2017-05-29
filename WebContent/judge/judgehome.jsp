@@ -28,8 +28,8 @@
 		</script> -->
 		<script src="include/checksource.js"></script>
 
-		Problem <span class=blue><b>1001</b></span> 
-		<input id="id" type='hidden' value='1001' name="id" ><br>
+		Problem <span class=blue><b>1000</b></span> 
+		<input id="id" type='hidden' value='1000' name="id" ><br>
 		 <span id="language_span">Language: <select
 			name="language" id="language" onChange="reloadtemplate(this);">
 				<option value=0 selected>C</option>

@@ -29,7 +29,7 @@
 			<ref bean="studentManager"></ref>
 		</property>
 	</bean>
-
+	
 	<bean id="itemAction" class="action.ItemAction">
 		<property name="itemManager">
 			<ref bean="itemManager"></ref>
@@ -72,6 +72,8 @@
 			<ref bean="answerManager"></ref>
 		</property>
 	</bean>
+	
+	
 	<!-- chj -->
 	<bean id="submitAction" class="action.SubmitCodeAction">
 		<property name="solutionManager">

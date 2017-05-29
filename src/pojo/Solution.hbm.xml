@@ -21,7 +21,7 @@
 		<property name="code_length" />
 		<property name="judgetime" />
 		<property name="pass_rate" />
-		<property name="int_error" />
+		<property name="lint_error" />
 		<property name="judger" />
 	</class>
 </hibernate-mapping>

@@ -73,6 +73,7 @@ public class TeaExamAction implements Action, SessionAware{
 		List bf = (List)map.get("blankfiling");
 		List cho = (List)map.get("choice");
 		List jd = (List)map.get("judge");
+		List co = (List)map.get("code");
 		JSONObject e = (JSONObject)map.get("examParamters");
 		ExamParamters exa = (ExamParamters) JSONObject.toBean(e, ExamParamters.class);
 		
@@ -82,22 +83,29 @@ public class TeaExamAction implements Action, SessionAware{
 		exam.setExamPaperId(id+strs[(int)session.get("addExam")]);
 		
 		if(examManager.setExam(exam)){
-			setExampaper(bf,exam.getExamPaperId());
-			setExampaper(cho,exam.getExamPaperId());
-			setExampaper(jd,exam.getExamPaperId());
+			setExampaper(bf,exam.getExamPaperId(),"Item");
+			setExampaper(cho,exam.getExamPaperId(),"Item");
+			setExampaper(jd,exam.getExamPaperId(),"Item");
+			setExampaper(co,exam.getExamPaperId(),"Problem");
 		}
 
 		//题id串，exampaperId
 		//exampaperManager.setExampaper(map, exam.getExamPaperId());
 		
 		return "success";
-	}
+	} 
 	
-	private boolean setExampaper(List items,String id){
+	private boolean setExampaper(List items,String id,String classType){
 		Iterator item = items.iterator();
     	while(item.hasNext()){
-    		Item obj = (Item) JSONObject.toBean((JSONObject) item.next(),Item.class);
-    		exampaperManager.setExampaper(obj.getItemId(),id);
+    		Object obj = item.next();
+    		if(classType.equals("Item")){
+    			Item theItem = (Item) JSONObject.toBean((JSONObject) obj,Item.class);
+    			exampaperManager.setExampaper(theItem.getItemId(),id);
+    		}else if(classType.equals("Problem")){
+    			Problem theProblem = (Problem) JSONObject.toBean((JSONObject) obj,Problem.class);
+        		exampaperManager.setExampaper(theProblem.getProblem_id(),id);
+    		}
     	}
 		return true;
 	}

@@ -58,7 +58,8 @@
             <ref bean="sessionFactory" />
         </property>
     </bean>
-		<!-- chjDao -->
+    
+	<!-- chjDao -->
 	<bean id="solutionDaoImpl" class="daoImpl.chj.SolutionDaoImpl">
 		<property name="judgeSessionFactory">
 			<ref bean="judgeSessionFactory" />

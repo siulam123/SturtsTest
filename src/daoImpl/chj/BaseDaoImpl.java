@@ -21,7 +21,7 @@ import pojo.PageModel;
 @SuppressWarnings("all")
 public class BaseDaoImpl<T> implements BaseDao<T>{
 
-	// Fields
+
 	private Class<T> clazz; // Class type
 	private SessionFactory judgeSessionFactory;
 
@@ -63,20 +63,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return null;
 	}
 
-	@Override
-	public T get(String hql, Map<String, Object> params) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (params != null && !params.isEmpty()) {
-			for (String key : params.keySet()) {
-				q.setParameter(key, params.get(key));
-			}
-		}
-		List<T> l = q.list();
-		if (l != null && l.size() > 0) {
-			return l.get(0);
-		}
-		return null;
-	}
 
 	@Override
 	public void delete(T o) {
@@ -88,10 +74,6 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		this.getCurrentSession().update(o);
 	}
 
-	@Override
-	public void saveOrUpdate(T o) {
-		this.getCurrentSession().saveOrUpdate(o);
-	}
 
 	@Override
 	public List<T> find(String hql) {
@@ -100,33 +82,10 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 	@Override
-	public List<T> find(String hql, Map<String, Object> params) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (params != null && !params.isEmpty()) {
-			for (String key : params.keySet()) {
-				q.setParameter(key, params.get(key));
-			}
-		}
-		return q.list();
-	}
-
-	@Override
-	public List<T> find(String hql, Map<String, Object> params, int page, int rows) {
-		Query q = this.getCurrentSession().createQuery(hql);
-		if (params != null && !params.isEmpty()) {
-			for (String key : params.keySet()) {
-				q.setParameter(key, params.get(key));
-			}
-		}
-		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
-	}
-
-	@Override
 	public List<T> find(String hql, int page, int rows) {
 		Query q = this.getCurrentSession().createQuery(hql);
 		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
 	}
-
 
 	@Override
 	public int totalCount() {
@@ -144,8 +103,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	public PageModel<T> findByPager(int pageNo, int pageSize) {
 		PageModel<T> pm = new PageModel<T>(pageNo, pageSize);
 		String hql = "select t from " + clazz.getSimpleName() + " t";
-		System.out.println(this.getCurrentSession().createQuery(hql).setFirstResult(pageNo).setMaxResults(pageSize).list());
-		pm.setDatas(this.getCurrentSession().createQuery(hql).setFirstResult(pageNo).setMaxResults(pageSize).list());
+		pm.setDatas(this.getCurrentSession().createQuery(hql).setFirstResult((pageNo-1)*pageSize).setMaxResults(pageSize).list());
 		pm.setRecordCount(totalCount());
 
 		return pm;
@@ -169,18 +127,11 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 
-	
 	@Override
 	public int executeHql(String hql) {
 		Query q = this.getCurrentSession().createQuery(hql);
 		return q.executeUpdate();
 	}
-
-
-
-
-
-
 
 
 }

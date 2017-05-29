@@ -69,19 +69,6 @@
 
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 	<!-- 基于注解的方式使用事务配置声明 -->
 	<!-- <tx:annotation-driven transaction-manager="transactionManager" /> -->

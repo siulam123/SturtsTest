@@ -15,14 +15,7 @@
 <body>
 	<input id="page" type="hidden" value="1">
 	<table>
-		<thead>
-			<tr>
-				<td>Problem ID</td>
-				<td>Tittle</td>
-				<td>AC</td>
-				<td>Submit</td>
-			</tr>
-		</thead>
+
 		<tbody>
 			<span  id="result" ></span>
 		</tbody>

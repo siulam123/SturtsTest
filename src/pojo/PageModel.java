@@ -11,8 +11,8 @@ import java.util.List;
 public class PageModel<T> {
 	// Fields
 
-		private int pageNo=1;    // Current page number
-		private int pageSize=20; // Size of each page
+		private int pageNo;    // Current page number
+		private int pageSize; // Size of each page
 		private int recordCount; // Total number of records
 		private int pageCount;   // Total number of page
 		private List<T> datas;   // List of data in page

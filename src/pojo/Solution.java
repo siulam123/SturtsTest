@@ -26,7 +26,7 @@ public class Solution {
 	private Integer code_length;
 	private Date judgetime;
 	private Double pass_rate;
-	private Integer int_error;
+	private Integer lint_error;
 	private String judger;
 	public Integer getSolution_id() {
 		return solution_id;
@@ -118,11 +118,13 @@ public class Solution {
 	public void setPass_rate(Double pass_rate) {
 		this.pass_rate = pass_rate;
 	}
-	public Integer getInt_error() {
-		return int_error;
+	
+
+	public Integer getLint_error() {
+		return lint_error;
 	}
-	public void setInt_error(Integer int_error) {
-		this.int_error = int_error;
+	public void setLint_error(Integer lint_error) {
+		this.lint_error = lint_error;
 	}
 	public String getJudger() {
 		return judger;

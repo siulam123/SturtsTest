@@ -22,13 +22,14 @@ import tool.DataTool;
 @Controller
 public class SubmitCodeAction implements Action {
 	private String contentType = "text/html;charset=utf-8";
+	private JSONObject result;
 	private int problem_id;
 	private int language;
 	private String source;
 	private String date;
 
 	private Integer sid;
-	private JSONObject result;
+
 
 	private Solution solution;
 	private Source_code source_code;
@@ -41,7 +42,7 @@ public class SubmitCodeAction implements Action {
 	public String execute() throws Exception {
 		ServletActionContext.getResponse().setContentType(contentType);
 		solution.setSolution_id(110);
-		solution.setProblem_id(1001);
+		solution.setProblem_id(1000);
 		solution.setUser_id("qwerasdf");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		date = df.format(new Date());

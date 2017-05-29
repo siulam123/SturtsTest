@@ -67,6 +67,7 @@
 			<ref bean="answerDaoImpl" />
 		</property>
 	</bean>
+	
 	<!-- chj -->
 	<bean id="solutionManager" class="service.chj.SolutionManagerImpl">
 		<property name="solutionDaoImpl">

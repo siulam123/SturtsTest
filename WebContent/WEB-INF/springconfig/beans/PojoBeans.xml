@@ -22,6 +22,7 @@
     <bean id="examParamters" class="pojo.ExamParamters"></bean>
     <bean id="answerExam" class="pojo.AnswerExam"></bean>
     <bean id="answer]" class="pojo.Answer"></bean>
+    
    <!--  chj -->
 	<bean id="solution" class="pojo.Solution"></bean>
 	<bean id="source_code" class="pojo.Source_code"></bean>

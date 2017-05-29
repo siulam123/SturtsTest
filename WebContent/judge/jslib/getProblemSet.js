@@ -63,10 +63,12 @@ function callback() {
 				var Text = "";
 
 				$.each(jsArray, function(index,value){
-					Text += jsArray[index].problem_id;
-					Text += jsArray[index].title;
-					Text += jsArray[index].accepted;
-					Text += jsArray[index].submit;
+					Text += "题号：<br>" + jsArray[index].problem_id;
+					Text += "标题：<br>" +jsArray[index].title;
+					Text += "问题：<br>" +jsArray[index].description;
+					Text += "输入：<br>" +jsArray[index].sample_input;
+					Text += "输出：<br>" +jsArray[index].sample_output;
+					Text += "<br>"
 				});
 				divNode.innerText = Text;
 				return false;

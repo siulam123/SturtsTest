@@ -22,8 +22,6 @@ public class ProblemManagerImpl implements ProblemManager{
 		System.out.println("ProblemManagerImpl IN");
 	}
 
-	
-	
 
 	@Override
 	public List<Problem> getProblems(int page) {
