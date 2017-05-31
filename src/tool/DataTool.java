@@ -27,8 +27,8 @@ public class DataTool {
 	
 	//½«List<Object>×ª»»ÎªjsonStr
 	public static String getJsonStr(Object object){
-		JSONArray jsonStr = JSONArray.fromObject(object);	
-		
+		JSONArray jsonStr = JSONArray.fromObject(object);
+
 		String result = jsonStr.toString();
 		
 		return result;

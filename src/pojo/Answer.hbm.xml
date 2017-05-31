@@ -4,11 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-mapping>
     <class name="pojo.Answer">
-        <id name="answerId"></id>
+        <id name="answerId">
+        	<generator class="identity"></generator>
+        </id>
         <property name="examId" />
         <property name="studentId" />
         <property name="itemId" />
         <property name="answer" />
+        <property name="RoW" />
     </class>
     
 </hibernate-mapping>

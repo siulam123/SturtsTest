@@ -11,13 +11,23 @@
 	<table>
 		<caption><h3>User Register</h3></caption>
 		<tr>
-			<td>Username:<input type="text" name = "user_name"/></td>
+			<td>user_id:<br>
+				<textarea name="user_id" rows="9" cols="70" style="max-width: 500px;"></textarea><br>
+			</td>
 		</tr>
 		<tr>
-			<td>Password:<input type="password" name = "user_password"/></td>
+			<td>user_name:<br>
+			<textarea name="user_name" rows="9" cols="70" style="max-width: 500px;"></textarea><br>
+			</td>
 		</tr>
 		<tr>
-			<td>Email:<input type="test" name = "user_email"/></td>
+			<td>
+				<select name="user_type">
+		            <option selected="student" value="student">student</option>
+		            <option value="teacher">teacher</option>
+		            <option value="administrator">administrator</option>
+	         	</select>
+			</td>
 		</tr>
 		<tr align="center">
 			<td colspan="2"><input type="submit" value="Login"/></td>

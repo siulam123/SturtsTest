@@ -44,7 +44,9 @@ public class ItemManagerImpl implements ItemManager{
         return dao.getItemById(itemId);
     }
    
-    
+    public boolean marking(Item item) throws HibernateException {
+    	return dao.markingDAO(item);
+    }
 
 	@Override
 	public boolean reflect(Item item, Double amount) throws HibernateException {

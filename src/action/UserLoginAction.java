@@ -36,9 +36,14 @@ public class UserLoginAction implements Action,SessionAware{
 	private String user_password;
 	private String user_type;
 	
+	//改密码用的新密码
+	private String newPwd; 
+	
 	private Student student;
 	private Administrator administrator;
 	private Teacher teacher;
+
+	private String result;
 
 	public String execute() throws Exception
     {
@@ -49,17 +54,50 @@ public class UserLoginAction implements Action,SessionAware{
 
 			case "administrator":return loginAdministrator();
 			
-			case "register":return register();
+			//case "register":return register();
 
 			default: return NONE;
 		}
     }
 	
-	private String register(){
+	public String changePW(){
+		
+		switch (getUser_type()) {
+		case "student":
+			
+			break;
+		case "teacher":
+			Teacher tea = (Teacher)session.get("teacher");
+			tea.setPassword(user_password);
+	        if(teacherManager.login(tea).equals("success")){ 
+	        	tea.setPassword(getNewPwd());
+	        	teacherManager.updateObject(tea);
+	        	result = "The password updata is success！";
+	        }
+	        else{
+	        	result = "password is error！";
+	        }
+			break;
+		case "administrator":
+	
+			break;
+
+		default:
+			break;
+		}
+		
+		
+		
+		return "result";
+	}
+	
+	public String register(){
         ServletActionContext.getResponse().setContentType(contentType);
+        
 		student.setStudentId("04140701");
 		student.setPassword("dahuang");
 		student.setStudentName("大黄");
+		
 		if(studentManager.register(student)){
 			return SUCCESS;
 		}
@@ -129,6 +167,7 @@ public class UserLoginAction implements Action,SessionAware{
 		return "success";
 	}
 	
+	
 	public Map<String, Object> getSession() {
 		return session;
 	}
@@ -186,27 +225,31 @@ public class UserLoginAction implements Action,SessionAware{
 		this.user_password = user_password;
 	}
 
-	public StudentManagerImpl getstudentManager() {
-		return studentManager;
-	}
-	
-	public TeacherManagerImpl getTeacherManager() {
-		return teacherManager;
-	}
-
 	public void setTeacherManager(TeacherManagerImpl teacherManager) {
 		this.teacherManager = teacherManager;
 	}
-
-	public AdministratorManager getAdministratorManager() {
-		return administratorManager;
-	}
-
+	
 	public void setAdministratorManager(AdministratorManagerImpl administratorManager) {
 		this.administratorManager = administratorManager;
 	}
 
 	public void setStudentManager(StudentManagerImpl studentManager) {
 		this.studentManager = studentManager;
+	}
+
+	public String getNewPwd() {
+		return newPwd;
+	}
+
+	public void setNewPwd(String newPwd) {
+		this.newPwd = newPwd;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 }

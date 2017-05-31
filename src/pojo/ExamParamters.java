@@ -3,15 +3,16 @@ package pojo;
  * 试卷参数类，存放试卷各类型题目题数和分值
  */
 public class ExamParamters {
+	//题目数目
 	private int choiceMun;
 	private int judgeMun;
 	private int blankfilingMun;
+	//分值
 	private int choicePlace;
 	private int judgePlace;
 	private int blankfilingPlace;
+	//标题
 	private String topic;
-	
-	
 	
 	public String getTopic() {
 		return topic;
@@ -55,6 +56,32 @@ public class ExamParamters {
 	public void setBlankfilingPlace(int blankfilingPlace) {
 		this.blankfilingPlace = blankfilingPlace;
 	}
-	
+	public String Place(){
+		String str = "";
+		int i = 0;
+		if(choiceMun!=0){
+			i = choicePlace / choiceMun;
+			str += i + "->";
+		}
+		else{
+			str += "0->";
+		}
+		if(judgeMun!=0){
+			i = judgePlace / judgeMun;
+			str += i + "->";
+		}
+		else{
+			str += "0->";
+		}
+		if(blankfilingMun!=0){
+			i = blankfilingPlace / blankfilingMun;
+			str += i;
+		}
+		else{
+			str += "0";
+		}
+		
+		return str; 
+	}
 	
 }

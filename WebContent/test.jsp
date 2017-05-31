@@ -11,9 +11,11 @@
 	  <input class="common login-btn" type="submit" value="Login"/>
 </form>
 
-<form action="/JZExamSystem/ExamById.action" method="post">
-    <input class="common login-btn" type="submit" value="Login"/>
-    <input type="hidden" name="examId" value="661622" />
+<form action="/JZExamSystem/marking.action" method="post">
+    <input class="common login-btn" type="submit" value="Login2"/>
+    <input type="hidden" name="itemId" 	value="1" />
+    <input type="hidden" name="Type"	value="blankfiling" />
+    <input type="hidden" name="answer" 	value="运行中" />
     </form>
 </body>
 </html>

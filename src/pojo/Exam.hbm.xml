@@ -10,6 +10,7 @@
 		</composite-id>
         <property name="examName" />
         <property name="examTime" />
+        <property name="place" />
     </class>
     
 </hibernate-mapping>

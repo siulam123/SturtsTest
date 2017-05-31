@@ -33,7 +33,7 @@ public class ItemAction implements Action  {
 	
 	private String content;
 	private String type;
-	private String answer;
+	private String[] answer;
 	
 	private String itemStr;
 	
@@ -46,21 +46,6 @@ public class ItemAction implements Action  {
 	 * action:/JZExamSystem/getItemsByIds.action;
 	*/
 	public String Irems(){
-//		ServletActionContext.getResponse().setContentType(contentType);
-//		
-//		String[] s = DataTool.getItems(getItemStr());
-//		
-//		List<Object> list = new ArrayList<Object>();
-//		
-//		for(int i = 0; i< s.length; i++){
-//			if(s[i]!=null){
-//				list.add( ItemManager.getItemById(Integer.parseInt(s[i])) );
-//			}
-//		}
-		
-		//result = DataTool.getJsonStr(list);
-		
-		//System.out.println(result);
 		
 		return "success";
 	}
@@ -74,10 +59,18 @@ public class ItemAction implements Action  {
     {
 		ServletActionContext.getResponse().setContentType(contentType);
 		//设置属性
+		String str = "";
+		String[] ans = getAnswer();
+		for(int i = 0; i < ans.length; i++){
+			str += ans[i];
+			if(i != 0){
+				str += "->";
+			}
+		}
 		item.setContent(getContent());
 		item.setType(getType());
-		item.setAnswer(getAnswer());
-		item.setTime(item.getNowTime());
+		item.setAnswer(str);
+		item.setTime(DataTool.getNowTime());
 		
 		//调用业务逻辑类存入数据库
 		if(ItemManager.Upload(item)){
@@ -134,11 +127,11 @@ public class ItemAction implements Action  {
 		this.type = type;
 	}
 
-	public String getAnswer() {
+	public String[] getAnswer() {
 		return answer;
 	}
 
-	public void setAnswer(String answer) {
+	public void setAnswer(String[] answer) {
 		this.answer = answer;
 	}
 

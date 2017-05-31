@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 
@@ -17,4 +18,6 @@ public interface AnswerManager {
 	public boolean delectObject(Answer obj) throws HibernateException;
 	//获取全部
 	public List<Answer> getAll() throws HibernateException;
+	//判题，并将答案存入数据库，返回成绩数
+	public Integer marking(Map<String, Object> session) throws HibernateException;
 }

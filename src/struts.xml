@@ -18,8 +18,12 @@
 		<action name="loginOut" class="action.UserLoginAction" method="loginOut">
 			<result name="success">/index.jsp</result>
 		</action>
-		
-		<action name="register" class="action.UserRegisterAction">
+		<action name="changePW" class="action.UserLoginAction" method="changePW">
+			<result type="json" name="result">
+				<param name="data">data</param>
+			</result>
+		</action>
+		<action name="register" class="action.UserRegisterAction" method="register">
 			<result name="success">/welcome.jsp</result>
 		</action>
 		
@@ -71,6 +75,10 @@
 			<result name="success">/success.jsp</result>
 		</action>
 		<action name="test" class="action.StuExamAction" method="test">
+			<result name="success">/success.jsp</result>
+		</action>
+		
+		<action name="marking" class="action.MarkingSystemAction" method="marking">
 			<result name="success">/success.jsp</result>
 		</action>
 	</package>

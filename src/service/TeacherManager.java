@@ -25,4 +25,5 @@ public interface TeacherManager {
 	public Teacher findObject(Teacher teacher) throws HibernateException;
 	public boolean recharge(Teacher teacher,Double amount) throws HibernateException;
 	public boolean reflect(Teacher teacher,Double amount) throws HibernateException;
+	public void updateObject(Teacher teacher) throws HibernateException;
 }

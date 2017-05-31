@@ -16,7 +16,9 @@ public interface ItemManager {
 	public List<Item> getItemsByType(String type) throws HibernateException;
 	//根据id获取题目
 	public Item getItemById(int itemId) throws HibernateException;
-		   
+	//判题调用函数，限选择题与判断题
+	public boolean marking(Item item) throws HibernateException;
+	
 	public boolean recharge(Item item,Double amount) throws HibernateException;
 	public boolean reflect(Item item,Double amount) throws HibernateException;
 }

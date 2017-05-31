@@ -40,6 +40,10 @@ public class TeacherManagerImpl implements TeacherManager{
     	return dao.findTeacher(teacher);
     }
     
+	public void updateObject(Teacher teacher) throws HibernateException {
+		dao.updateObject(teacher);
+	}
+    
     public String login(Teacher teacher) throws HibernateException{
     	Teacher teacherSql = dao.findTeacher(teacher);
     	if(teacherSql!=null)

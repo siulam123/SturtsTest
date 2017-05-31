@@ -1,11 +1,12 @@
 package pojo;
 
 public class Answer {
-	private Integer answerId;
-	private Integer examId;
-	private Integer studentId;
-	private Integer itemId;
-	private String answer;
+	private Integer answerId;	//自增id
+	private Integer examId;		//试卷id
+	private String 	studentId;	//学生id
+	private Integer itemId;		//题目id
+	private String 	answer;		//学生答案
+	private String 	RoW;		//对错
 	
 	public Integer getAnswerId() {
 		return answerId;
@@ -19,10 +20,10 @@ public class Answer {
 	public void setExamId(Integer examId) {
 		this.examId = examId;
 	}
-	public Integer getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(Integer studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
 	public Integer getItemId() {
@@ -36,5 +37,11 @@ public class Answer {
 	}
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+	public String getRoW() {
+		return RoW;
+	}
+	public void setRoW(String roW) {
+		RoW = roW;
 	}
 }

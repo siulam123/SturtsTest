@@ -4,8 +4,7 @@ public class AnswerExam {
 	private Integer answerExamId;
 	private Integer examId;
 	private String examName;
-	private Integer studentId;
-	private String studentName;
+	private String studentId;
 	private Integer score;
 	
 	public Integer getAnswerExamId() {
@@ -26,17 +25,11 @@ public class AnswerExam {
 	public void setExamName(String examName) {
 		this.examName = examName;
 	}
-	public Integer getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
-	public void setStudentId(Integer studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
-	}
-	public String getStudentName() {
-		return studentName;
-	}
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
 	}
 	public Integer getScore() {
 		return score;

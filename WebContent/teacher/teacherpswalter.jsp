@@ -7,39 +7,43 @@
 <title>老师修改密码</title>
 <script type="text/javascript" language="javascript">
     function changePassword() {
-        var oldPwd = $("#txtOldPwd").val();
+    	var oldPwd = $("#txtOldPwd").val();
         var newPwd = $("#txtNewPwd").val();
         var confirmNewPwd = $("#txtConfirmNewPwd").val();
-
+        var message;
+        
         if (oldPwd == "" || newPwd == "" || confirmNewPwd=="") {
-            $.jBox.tip("旧密码或新密码或确认新密码不能为空！", 'error');
+        	message = "旧密码或新密码或确认新密码不能为空！";
+        	alert(message);
             return false;
         }
         if (oldPwd.length < 6 || oldPwd.length > 16) {
-            $.jBox.tip("旧密码为6~16个字符，区分大小写！", 'error');
+        	message = "旧密码为6~16个字符，区分大小写！";
+        	alert(message);
             return false;
         }
         if (newPwd.length < 6 || newPwd.length > 16) {
-            $.jBox.tip("新密码为6~16个字符，区分大小写！", 'error');
+        	message = "新密码为6~16个字符，区分大小写！";
+        	alert(message);
             return false;
         }
         if (newPwd != confirmNewPwd) {
-            $.jBox.tip("新密码两次输入不一致！", 'error');
+        	message = "新密码两次输入不一致！";
+        	alert(message);
             return false;
         }
-
-        studentAccount.changePassword(oldPwd, newPwd, function (data) {
-            var obj = $.parseJSON(data);
-            if (obj.ok) {
-                jBox.alert(obj.message, "提示");
-                setTimeout(function () {
-                    window.location.reload();
-                }, 1500);
-            }
-            else {
-                jBox.tip(obj.message, 'error');
-            }
-        });
+        
+        $.ajax({  
+                url: '/JZExamSystem/changePW.action',
+                type: 'POST',  	 //请求类型
+				data: {"user_password":oldPwd,"newPwd":newPwd,"user_type":"teacher"},//上传数据
+                error: function(xml) {  
+                    alert("请求数据出错!");  
+                },
+                success: function(data){   //设置成功后回调函数
+            		alert(data.result);
+            	}
+            });
     }
 </script>
 <style type="text/css">
@@ -72,6 +76,5 @@
 	</table>
 	</div>
 </div>
-
 </body>
 </html>

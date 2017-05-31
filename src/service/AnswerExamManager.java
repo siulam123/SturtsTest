@@ -1,10 +1,12 @@
 package service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 
 import pojo.AnswerExam;
+import pojo.Item;
 
 public interface AnswerExamManager {
 	//存入
@@ -21,4 +23,6 @@ public interface AnswerExamManager {
 	public boolean delectObject(AnswerExam exam) throws HibernateException;
 	//获取全部
 	public List<AnswerExam> getAll() throws HibernateException;
+	//判题系统
+	public boolean marking(Map<String, Object> session) throws HibernateException;
 }

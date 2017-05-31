@@ -39,6 +39,20 @@ public class ItemDaoImpl extends HibernateDaoSupport implements ItemDao{
     	else
     		return null;
     }
+    
+    //判题函数，用于判断题与选择题
+    public boolean markingDAO(Item item) throws HibernateException{
+    	//"FROM Item U WHERE U.itemId = ?0 AND U.answer = ?1"
+    	String sql = "SELECT itemId FROM Item U WHERE U.itemId = ?0 AND U.answer = ?1";
+    	List<?> list = getHibernateTemplate().find(sql, item.getItemId(),item.getAnswer());
+    	
+    	if(list.size()!=0){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
+    }
 
 	public void updateObject(Item item) throws HibernateException {
 		getHibernateTemplate().update(item);	

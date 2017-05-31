@@ -76,6 +76,7 @@ public class TeaExamAction implements Action, SessionAware{
 		exam.setExamName(exa.getTopic());
 		exam.setExamTime(DataTool.getNowTime());
 		exam.setExamPaperId(id+strs[(int)session.get("addExam")]);
+		exam.setPlace(exa.Place());
 		
 		if(examManager.setExam(exam)){
 			setExampaper(bf,exam.getExamPaperId());

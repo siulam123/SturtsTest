@@ -181,10 +181,16 @@
         <property name="dao">
             <ref bean="answerExamDaoImpl" />
         </property>
+        <property name="answerManager">
+            <ref bean="answerManager" />
+        </property>
     </bean>
     <bean id="answerManager" class="service.AnswerManagerImpl">
         <property name="dao">
             <ref bean="answerDaoImpl" />
+        </property>
+        <property name="itemManager">
+            <ref bean="itemManager" />
         </property>
     </bean>
     
@@ -204,6 +210,12 @@
     <bean id="registerAction" class="action.UserRegisterAction">
     	<property name="studentManager">
     		<ref bean="studentManager"></ref>
+    	</property>
+    	<property name="administratorManager">
+    		<ref bean="administratorManager"></ref>
+    	</property>
+    	<property name="teacherManager">
+    		<ref bean="teacherManager"></ref>
     	</property>
     </bean>
     
@@ -247,6 +259,12 @@
     	</property>
     	<property name="answerManager">
     		<ref bean="answerManager"></ref>
+    	</property>
+    </bean> 
+    
+    <bean id="markingSystemAction" class="action.MarkingSystemAction">
+    	<property name="answerExamManager">
+    		<ref bean="answerExamManager"></ref>
     	</property>
     </bean> 
     

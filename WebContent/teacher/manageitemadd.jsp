@@ -61,6 +61,11 @@ function sub(){
 	        success: function(data){   //设置成功后回调函数
 			}
 	});
+	
+
+}
+function addAnswer(){
+	$("#blankfiling").prepend("<textarea id='bfanswer' rows='6' cols='70' style='max-width: 500px;'></textarea>");
 }
 </script>
 <style type="text/css">
@@ -131,6 +136,10 @@ color:#185697;
 					<textarea id="bfcontent" rows="9" cols="70" style="max-width: 500px;"></textarea><br>
 					答案：<br>
 					<textarea id="bfanswer" rows="6" cols="70" style="max-width: 500px;"></textarea>		
+					
+					<div>
+						<button onclick="addAnswer()">增加一个标准答案</button>
+					</div>
 				</div>
 			</td>
 		</tr>

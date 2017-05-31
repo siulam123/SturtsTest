@@ -17,12 +17,6 @@ public class Item {
 	public void setDegree(int degree) {
 		this.degree = degree;
 	}
-	public String getNowTime(){
-		SimpleDateFormat sdf = 
-				new SimpleDateFormat("yyyy-MM-dd");
-		String timestamp = sdf.format(new Date());
-		return timestamp;
-	}
 	public String getTime() {
 		return time;
 	}

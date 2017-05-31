@@ -9,6 +9,7 @@ public class Exam implements java.io.Serializable{
 	private String examPaperId;
 	private String examName;
 	private String examTime;
+	private String place;
 	
 	public int getExamId() {
 		return examId;
@@ -34,6 +35,13 @@ public class Exam implements java.io.Serializable{
 	public void setExamTime(String examTime) {
 		this.examTime = examTime;
 	}
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		if(o instanceof Exam){

@@ -16,5 +16,7 @@ public interface ItemDao {
 	public Item getItemById(int itemId) throws HibernateException;
 	//按照题目类型查找
 	public List<Item> getItemsByType(String type) throws HibernateException;
+	//判题函数，用于判断题与选择题
+	public boolean markingDAO(Item item) throws HibernateException;
 
 }
