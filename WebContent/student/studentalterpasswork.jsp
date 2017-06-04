@@ -7,21 +7,6 @@
 <title>学生修改密码</title>
 </head>
 <link rel="stylesheet" href="../css/studentalterpasswork.css">
-<script type="text/javascript">
- $(function Check(){
-    var text=document.getElementById("user");
-    var resultObj=$("#resultid");
-    if(text.value=="")
-    {
-      resultObj.hide();
-      alert("您输入的名字不能为空！");
-      return false;
-    }
-    else{
-      return true;
-    }
-})
-</script>
 <body>
 <form action="">
 	<div class="content">
@@ -32,10 +17,10 @@
 			姓名：<input type="text" class="input" value="陈跃" readonly>
 		</div>
 		<div class="locationcss">
-			新密码：<input type="text" class="input" >
+			新密码：<input type="text" class="input" required>
 		</div>
 		<div class="locationcss">
-			确认密码：<input type="text" class="input" >
+			确认密码：<input type="text" class="input" required>
 		</div>
 		<div class="locationcss">
 			<input type="submit" value="确认" style="height:40px;width:90px;">

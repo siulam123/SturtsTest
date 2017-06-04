@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+body{
+	background-color:#e7e7e7;	
+}
+#head{
+	background-color:#783d3d;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	padding:10px;
+	height:30px;
+}
+#main{
+	height:900px;
+  	width:1010px;
+ 	margin:5px auto;
+}
+#itemID{
+	width:24%;
+	height:250px;
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    -khtml-opacity: 0.8;  
+    opacity: 0.8;  
+	float:left;
+	padding:10px;
+}
+#item{
+	width:70%;
+	height:250px;
+	float:right;	
+	padding:10px;	
+	filter:alpha(opacity=50);  
+    -moz-opacity:0.8;  
+    -khtml-opacity: 0.8;  
+    opacity: 0.8; 	
+}
+#itemCtrl{
+	margin:5px 40px auto;
+}
+#item #footer{
+	position: absolute;  
+	bottom: 0;  
+	background-color: #AAA;  
+}
+
+.exchangedBtn:hover{background:#004FB3;cursor:pointer;color:#fff;}
+.exchangedBtn{width:22px;height:22px;line-height:20px;display:inline-block;text-align:center;color:#fff;background:#2477E3;margin:3px;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;text-decoration:none}
+.exchangedBtn:after,.exchangedBtn:before{position:absolute;content:"";height:1px;width:17px;background:#E0E0E0;top:10px;}
+.exchangedBtn:after{left:22px;}
+.exchangedBtn:before{right:22px;}
